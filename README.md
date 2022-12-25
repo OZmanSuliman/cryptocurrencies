@@ -87,3 +87,7 @@ There is a small part of the code isn't placed in the right components, by restr
 
 #### Design Pattrens
 Add factory pattern to manage the services, which will make the code cleaner and more readable
+
+
+
+cheers 🍻
