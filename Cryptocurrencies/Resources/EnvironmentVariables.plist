@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Release</key>
+	<dict>
+		<key>apiKey</key>
+		<string>b57c7b1b-2609-4ece-8179-1bf0db11515c</string>
+		<key>baseURL</key>
+		<string>https://pro-api.coinmarketcap.com</string>
+	</dict>
+	<key>Staging</key>
+	<dict>
+		<key>apiKey</key>
+		<string>548db3ed-1977-4b7d-81f0-3e823da51d2a</string>
+		<key>baseURL</key>
+		<string>https://pro-api.coinmarketcap.com</string>
+	</dict>
+	<key>Debug</key>
+	<dict>
+		<key>apiKey</key>
+		<string>548db3ed-1977-4b7d-81f0-3e823da51d2a</string>
+		<key>baseURL</key>
+		<string>https://pro-api.coinmarketcap.com</string>
+	</dict>
+</dict>
+</plist>
