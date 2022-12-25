@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2668E02958C77A009BCCBB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D2668DF2958C77A009BCCBB /* README.md */; };
+		2D2668E12958C77A009BCCBB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D2668DF2958C77A009BCCBB /* README.md */; };
+		2D2668E22958C77A009BCCBB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D2668DF2958C77A009BCCBB /* README.md */; };
 		2D2C886828CA387900CBD115 /* APIResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C886728CA387900CBD115 /* APIResponseProtocol.swift */; };
 		2D2C886928CA387900CBD115 /* APIResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C886728CA387900CBD115 /* APIResponseProtocol.swift */; };
 		2D2C886A28CA387900CBD115 /* APIResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C886728CA387900CBD115 /* APIResponseProtocol.swift */; };
@@ -171,6 +174,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D2668DF2958C77A009BCCBB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2D2C886728CA387900CBD115 /* APIResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseProtocol.swift; sourceTree = "<group>"; };
 		2D2C886C28CA38C600CBD115 /* FetchCurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyResponse.swift; sourceTree = "<group>"; };
 		2D4C1FA528C89D7100A9F8DE /* Cryptocurrencies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptocurrencies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +292,7 @@
 				2D4C1FC228C89D7200A9F8DE /* CryptocurrenciesUITests */,
 				2D4C1FA628C89D7100A9F8DE /* Products */,
 				2DA01EF628CA51190050BBC9 /* Frameworks */,
+				2D2668DF2958C77A009BCCBB /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -308,7 +313,7 @@
 			children = (
 				2D89D19428C9B0550076204A /* Core */,
 				2D4C1FD628C89D9200A9F8DE /* CustomViews */,
-				2D4C1FD928C89D9200A9F8DE /* Models */,
+				2D4C1FD928C89D9200A9F8DE /* Entities */,
 				2DA1EBAE28CB7AAF00EE4A1E /* Flows */,
 				2D4C1FD828C89D9200A9F8DE /* Utilities */,
 				2D4C1FDA28C89D9B00A9F8DE /* Resources */,
@@ -361,14 +366,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		2D4C1FD928C89D9200A9F8DE /* Models */ = {
+		2D4C1FD928C89D9200A9F8DE /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				2D8322E5295615880091C92D /* Status.swift */,
 				2D8322F729563AFF0091C92D /* cryptocurrency */,
 				2D8322E22956156C0091C92D /* Metadata */,
 			);
-			path = Models;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		2D4C1FDA28C89D9B00A9F8DE /* Resources */ = {
@@ -708,6 +713,7 @@
 			files = (
 				2D4C204128C8ABD500A9F8DE /* Launch Screen.storyboard in Resources */,
 				2D4C1FB028C89D7200A9F8DE /* Preview Assets.xcassets in Resources */,
+				2D2668E02958C77A009BCCBB /* README.md in Resources */,
 				2D4C204528C8AD5300A9F8DE /* EnvironmentVariables.plist in Resources */,
 				2D4C1FAD28C89D7200A9F8DE /* Assets.xcassets in Resources */,
 			);
@@ -733,6 +739,7 @@
 			files = (
 				2D4C208228C8B53300A9F8DE /* Launch Screen.storyboard in Resources */,
 				2D4C208328C8B53300A9F8DE /* Preview Assets.xcassets in Resources */,
+				2D2668E22958C77A009BCCBB /* README.md in Resources */,
 				2D4C208428C8B53300A9F8DE /* EnvironmentVariables.plist in Resources */,
 				2D4C208528C8B53300A9F8DE /* Assets.xcassets in Resources */,
 			);
@@ -744,6 +751,7 @@
 			files = (
 				2D4C20C228C8B53600A9F8DE /* Launch Screen.storyboard in Resources */,
 				2D4C20C328C8B53600A9F8DE /* Preview Assets.xcassets in Resources */,
+				2D2668E12958C77A009BCCBB /* README.md in Resources */,
 				2D4C20C428C8B53600A9F8DE /* EnvironmentVariables.plist in Resources */,
 				2D4C20C528C8B53600A9F8DE /* Assets.xcassets in Resources */,
 			);
