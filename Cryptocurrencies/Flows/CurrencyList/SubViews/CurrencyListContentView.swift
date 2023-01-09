@@ -35,7 +35,7 @@ struct CurrencyListContentView<Interactor, Presenter>: View where Interactor: Cu
             List {
                 GeometryReader { g in
                     ZStack {
-                        Image("cloud")
+                        Image("banner")
                             .resizable()
                         VStack {
                             // head content

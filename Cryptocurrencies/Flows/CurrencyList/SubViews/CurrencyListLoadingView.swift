@@ -25,7 +25,7 @@ struct CurrencyListLoadingView: View {
             List {
                 GeometryReader { g in
                     ZStack {
-                        Image("cloud")
+                        Image("banner")
                             .resizable()
                         VStack {
                             // head content

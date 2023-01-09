@@ -62,8 +62,8 @@ extension CurrencyListInteractor {
         let perPageStr = "\(perPage)"
         let request = FetchCurrencyRequest(start: start, limit: perPageStr)
         apiManager.apiRequest(request, withSuccess: { [weak self] (response: FetchCurrencyResponse?, _, _) in
-            if let CurrencyBaseModel = response?.CurrencyList {
-                if CurrencyBaseModel.status?.error_code == 0 {
+            if let CurrencyBaseModel = response?.CurrencyList, CurrencyBaseModel.status?.error_code == 0  {
+                
                     self?.currentPage += 1
                     if CurrencyBaseModel.cryptocurrencyModel?.count ?? 0 < self?.perPage ?? 10 {
                         self?.membersListFull = true
@@ -76,10 +76,10 @@ extension CurrencyListInteractor {
                     
                     DispatchQueue.main.async {
                         #warning("add custom error enum")
-                        let error =  CurrencyBaseModel.status?.error_message ?? "unkown error"
+                        let error =  response?.CurrencyList?.status?.error_message ?? "unkown error"
                         self?.presenter.CurrencyListFaild(error: error)
                         self?.isFetching = false
-                    }
+                    
                 }
             }
             print(response?.CurrencyList as Any)
