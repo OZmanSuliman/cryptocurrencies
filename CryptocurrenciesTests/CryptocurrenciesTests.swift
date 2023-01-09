@@ -18,7 +18,7 @@ class WeatherAppTests: XCTestCase {
 
     override func setUpWithError() throws {
         currencyListPresenter = CurrencyListPresenter()
-        apiManager = ApiManager()
+        apiManager = ApiManager.shared
         store = AppState.shared
     }
 

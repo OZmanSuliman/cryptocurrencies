@@ -17,15 +17,9 @@ struct AnimatedTopView: View {
     @State private var orientation = UIDeviceOrientation.unknown
     var headView: AnyView
     var bodyView: AnyView
-    private var membersListIsFull: Bool?
-    private var refresh: (() -> Void)?
-    private var fetch: (() -> Void)?
-    init(headView: AnyView, bodyView: AnyView, membersListIsFull: Bool?, fetch: (() -> Void)?, refresh: (() -> Void)?) {
+    init(headView: AnyView, bodyView: AnyView) {
         self.headView = headView
         self.bodyView = bodyView
-        self.refresh = refresh
-        self.fetch = fetch
-        self.membersListIsFull = membersListIsFull
         if UIDevice.current.orientation.isLandscape {
             appBarHeight = 2.0
         }
@@ -71,21 +65,8 @@ struct AnimatedTopView: View {
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets())
-                if membersListIsFull == false {
-                    ActivityIndicatorView()
-                        .frame(width: UIScreen.main.bounds.size.width, alignment: .center)
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets())
-                        .onAppear {
-                            fetch?()
-                        }
-                }
             }
             .listStyle(.plain)
-            .refreshable {
-                refresh?()
-            }
             if self.show {
                 TopView()
             }
@@ -110,6 +91,6 @@ struct AnimatedTopView: View {
 
 struct AnimatedTopView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimatedTopView(headView: AnyView(Text("")), bodyView: AnyView(Text("")), membersListIsFull: true, fetch: nil, refresh: nil)
+        AnimatedTopView(headView: AnyView(Text("")), bodyView: AnyView(Text("")))
     }
 }

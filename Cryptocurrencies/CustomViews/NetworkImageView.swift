@@ -8,71 +8,131 @@
 import SwiftUI
 
 // MARK: - NetworkImageView
-
 struct NetworkImageView: View {
-    @StateObject private var state: AppState
-
-    init(id: String) {
-        #warning("move url to presenter")
-        let state = AppState()
-        self._state = StateObject(wrappedValue: state)
-        state.stateCalculator = .loading
-        fetchUrl(id: id)
-    }
-
+    // Declare a new state variable to store the image URL
+    @State private var imageURL: URL?
+    @State private var isLoading = false
+    let id: String
+    
+    
     var body: some View {
-        switch state.stateCalculator {
-        case .loading:
-            ActivityIndicatorView()
-        case let .loaded(imageURL):
-            if let imageURL = imageURL as? URL {
-                AsyncImage(url: imageURL) { phase in
-                    if let image = phase.image {
+        VStack{
+            // Use the AsyncImage view to asynchronously load the image
+            if isLoading {
+                ActivityIndicatorView()
+            } else if let imageURL = imageURL {
+                CacheAsyncImage(
+                    url: imageURL
+                ) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
                         image
                             .resizable()
-                    } else if phase.error != nil {
+                    case .failure(_):
                         Image("appLogo")
                             .resizable()
-                    } else {
-                        ActivityIndicatorView()
+                    @unknown default:
+                        fatalError()
                     }
                 }
                 .frame(width: 25, height: 25)
             } else {
-                Image("appLogo")
-                    .resizable()
-                    .frame(width: 25, height: 25)
+                ActivityIndicatorView()
             }
-
-        default:
-            Image("appLogo")
-                .resizable()
-                .frame(width: 25, height: 25)
+        }
+        .onAppear{
+            if imageURL == nil {
+                fetchURL()
+            }
         }
     }
-}
-
-extension NetworkImageView {
-    func fetchUrl(id: String) {
+    
+    private func fetchURL() {
+        DispatchQueue.main.async {
+            isLoading = true
+        }
+        // Make the API request to get the image URL
         let request = MetadataRequest(id: id)
         ApiManager().apiRequest(request, withSuccess: { (response: MetadataResponse?, _, _) in
-            if let currencyBaseModel = response?.currencyDetails {
+            if let currencyBaseModel = response?.currencyDetails , currencyBaseModel.status?.error_code == 0 {
                 let iconURL = currencyBaseModel.data?.cryptocurrencyMetadata?.logo
-                let imageURL = URL(string: iconURL ?? "NA")!
+                self.imageURL = URL(string: iconURL ?? "NA")!
                 DispatchQueue.main.async {
-                    self.state.stateCalculator = .loaded(imageURL)
+                    self.isLoading = false
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.isLoading = false
                 }
             }
         }) { (error: Error) in
-            self.state.stateCalculator = .failed(error.localizedDescription)
+            // In case of an error, you could handle it here
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
         }
     }
 }
 
-// MARK: - NetworkImageView_Previews
 
-struct NetworkImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        NetworkImageView(id: "01n")
+
+struct CacheAsyncImage<Content>: View where Content: View {
+
+    private let url: URL
+    private let scale: CGFloat
+    private let transaction: Transaction
+    private let content: (AsyncImagePhase) -> Content
+
+    init(
+        url: URL,
+        scale: CGFloat = 1.0,
+        transaction: Transaction = Transaction(),
+        @ViewBuilder content: @escaping (AsyncImagePhase) -> Content
+    ) {
+        self.url = url
+        self.scale = scale
+        self.transaction = transaction
+        self.content = content
+    }
+
+    var body: some View {
+
+        if let cached = ImageCache[url] {
+            let _ = print("cached \(url.absoluteString)")
+            content(.success(cached))
+        } else {
+            let _ = print("request \(url.absoluteString)")
+            AsyncImage(
+                url: url,
+                scale: scale,
+                transaction: transaction
+            ) { phase in
+                cacheAndRender(phase: phase)
+            }
+        }
+    }
+
+    func cacheAndRender(phase: AsyncImagePhase) -> some View {
+        if case .success(let image) = phase {
+            ImageCache[url] = image
+        }
+
+        return content(phase)
+    }
+}
+
+
+fileprivate class ImageCache {
+    static private var cache: [URL: Image] = [:]
+
+    static subscript(url: URL) -> Image? {
+        get {
+            ImageCache.cache[url]
+        }
+        set {
+            ImageCache.cache[url] = newValue
+        }
     }
 }

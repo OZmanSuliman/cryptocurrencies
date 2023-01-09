@@ -13,11 +13,17 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 
-struct CryptocurrencyModel : Codable, Identifiable, Equatable{
+struct CryptocurrencyModel : Codable, Identifiable, Equatable, Hashable{
     static func == (lhs: CryptocurrencyModel, rhs: CryptocurrencyModel) -> Bool {
         lhs.id == rhs.id
     }
-    
+    var identifier: String {
+        return "\(self.id ?? 0)-\(self.name ?? "")-\(self.date_added ?? "")"
+       }
+       
+       public func hash(into hasher: inout Hasher) {
+           return hasher.combine(identifier)
+       }
 	let id : Int?
 	let name : String?
 	let symbol : String?

@@ -33,62 +33,25 @@ enum AppStateEnum: Equatable {
 }
 
 // MARK: - AppState
-
 class AppState: ObservableObject {
     static let shared = AppState()
-    @Published var unit = 0
-    @Published var isNotificationsOn = false
-    @Published var state = AppStateEnum.idle
-    @Published var result: Result<CryptocurrencyModel, Error>?
-    @Published private(set) var time = Date().timeIntervalSince1970
-    private var cancellable: AnyCancellable?
+    @Published private(set) var state = AppStateEnum.idle
     private let concurrentQueue = DispatchQueue(label: "serialQueue", attributes: .concurrent)
 
-    init() {
-        unit = UserDefaults.standard.integer(forKey: "unit")
-        isNotificationsOn = UserDefaults.standard.bool(forKey: "isNotificationsOn")
-    }
-}
-
-extension AppState {
     var stateCalculator: AppStateEnum {
         get {
-            return getState()
+            var value: AppStateEnum?
+            concurrentQueue.sync {
+                value = self.state
+            }
+            return value ?? .idle
         }
         set {
-            setState(newValue: newValue)
-        }
-    }
-
-    func getState() -> AppStateEnum {
-        var value: AppStateEnum?
-        concurrentQueue.sync {
-            value = self.state
-        }
-        return value ?? .idle
-    }
-
-    func setState(newValue: AppStateEnum) {
-        concurrentQueue.async(flags: .barrier) {
-            DispatchQueue.main.async{
-                self.state = newValue
+            concurrentQueue.async(flags: .barrier) {
+                DispatchQueue.main.async {
+                    self.state = newValue
+                }
             }
         }
-    }
-
-    func start() {
-        cancellable = Timer.publish(
-            every: 1,
-            on: .main,
-            in: .default
-        )
-        .autoconnect()
-        .sink { date in
-            self.time = date.timeIntervalSince1970
-        }
-    }
-
-    func stop() {
-        cancellable = nil
     }
 }

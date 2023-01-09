@@ -10,30 +10,110 @@ import SwiftUI
 
 // MARK: - CurrencyListContentView
 
-struct CurrencyListContentView: View {
+struct CurrencyListContentView<Interactor, Presenter>: View where Interactor: CurrencyListInteractorProtocol, Presenter: CurrencyListPresenterProtocol {
     @StateObject var store = AppState.shared
-    @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var appBarHeight: CGFloat = 3.5
+    @State var show = false
     @State private var orientation = UIDeviceOrientation.unknown
+    @ObservedObject var presenter: Presenter
+    @ObservedObject var interactor: Interactor
+    @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     let CurrencyList: [CryptocurrencyModel]
-    var animatedTopView: AnimatedTopView?
-    let interactor: CurrencyListInteractorProtocol
     var membersListIsFull: Bool?
-    init(interactor: CurrencyListInteractorProtocol, CurrencyList: [CryptocurrencyModel], membersListIsFull: Bool?) {
-        self.interactor = interactor
+    init(presenter: any CurrencyListPresenterProtocol, interactor: any CurrencyListInteractorProtocol, CurrencyList: [CryptocurrencyModel], membersListIsFull: Bool?) {
+        self.interactor = interactor as! Interactor
+        self.presenter = presenter as! Presenter
         self.CurrencyList = CurrencyList
         self.membersListIsFull = membersListIsFull
-        animatedTopView = AnimatedTopView(headView: setHead(), bodyView: setBody(), membersListIsFull: membersListIsFull, fetch: fetch, refresh: interactor.refresh)
-
         if UIDevice.current.orientation.isLandscape {
             appBarHeight = 2.0
         }
     }
 
     var body: some View {
-        animatedTopView
-            .onAppear {
-                interactor.fetchCurrency(nil)
+        ZStack(alignment: .top, content: {
+            List {
+                GeometryReader { g in
+                    ZStack {
+                        Image("cloud")
+                            .resizable()
+                        VStack {
+                            // head content
+                            setHead()
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width, height: g.frame(in: .global).minY > 0 ? UIScreen.main.bounds.height / appBarHeight + g.frame(in: .global).minY : UIScreen.main.bounds.height / appBarHeight)
+                    .onReceive(self.time) { _ in
+                        // its not a timer...
+                        // for tracking the image is scrolled out or not...
+                        let y = g.frame(in: .global).minY
+                        if -y > (UIScreen.main.bounds.height / appBarHeight) - 50 {
+                            withAnimation {
+                                self.show = true
+                            }
+                        } else {
+                            withAnimation {
+                                self.show = false
+                            }
+                        }
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.size.width, alignment: .center)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+                // fixing default height...
+                .frame(height: UIScreen.main.bounds.height / appBarHeight + 0.2)
+                // body content
+                
+                if !presenter.cryptocurrencyModel.isEmpty {
+                    ForEach(presenter.cryptocurrencyModel) { item in
+                        CurrencyRow(currencyModel: item)
+                            .listRowBackground(Color.clear)
+                    }
+                    if presenter.membersListIsFull == false {
+                        ActivityIndicatorView()
+                            .frame(width: UIScreen.main.bounds.width, alignment: .center)
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                            .onAppear {
+                                fetch()
+                            }
+                    }
+                } else {
+                    Spacer()
+                    Text("No Data Available About the Currencys😢")
+                        .font(.subheadline)
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                        .padding(.top, 50)
+                    Spacer()
+                }
+            
+            }
+            .refreshable {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    store.stateCalculator = .loading
+                    presenter.cryptocurrencyModel = []
+                    interactor.refresh()
+                }
+            }
+            .listStyle(.plain)
+            if self.show {
+                TopView()
+            }
+        })
+            .ignoresSafeArea(edges: .top)
+            .onRotate { newOrientation in
+                orientation = newOrientation
+                switch newOrientation {
+                case .landscapeLeft, .landscapeRight:
+                    appBarHeight = 2.0
+                case .unknown, .portrait, .portraitUpsideDown, .faceUp, .faceDown:
+                    appBarHeight = 3.5
+                @unknown default:
+                    appBarHeight = 3.5
+                }
             }
     }
 }
@@ -42,6 +122,7 @@ extension CurrencyListContentView {
     func fetch() {
         interactor.fetchCurrency(nil)
     }
+
     func setHead() -> AnyView {
         return AnyView(
             HStack {
@@ -65,27 +146,6 @@ extension CurrencyListContentView {
             }
             .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top == 0 ? 15 : (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 5)
             .padding([.leading, .bottom])
-        )
-    }
-
-    func setBody() -> AnyView {
-        AnyView(
-            VStack {
-                if !CurrencyList.isEmpty {
-                    ForEach(CurrencyList) { item in
-                        CurrencyRow(currencyModel: item)
-                    }
-                } else {
-                    Spacer()
-                    Text("No Data Available About the Currencys😢")
-                        .font(.subheadline)
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.center)
-                        .padding(.top, 50)
-                    Spacer()
-                }
-            }
-            .padding()
         )
     }
 }

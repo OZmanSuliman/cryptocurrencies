@@ -22,13 +22,13 @@ struct CryptocurrenciesApp: App {
     func setInteractor() -> CurrencyListScreen {
         if EnvironmentManager.shared.checkIsDev() {
             let apiManager = ApiManagerMock()
-            let presenter: CurrencyListPresenterProtocol = CurrencyListPresenter()
-            let interactor: CurrencyListInteractorProtocol = CurrencyListInteractorMock(apiManager: apiManager, presenter: presenter)
+            let presenter: any CurrencyListPresenterProtocol = CurrencyListPresenter()
+            let interactor: any CurrencyListInteractorProtocol = CurrencyListInteractorMock(apiManager: apiManager, presenter: presenter)
             return CurrencyListScreen(interactor: interactor, presenter: presenter)
         } else {
-            let apiManager = ApiManager()
-            let presenter: CurrencyListPresenterProtocol = CurrencyListPresenter()
-            let interactor: CurrencyListInteractorProtocol = CurrencyListInteractor(apiManager: apiManager, presenter: presenter)
+            let apiManager = ApiManager.shared
+            let presenter: any CurrencyListPresenterProtocol = CurrencyListPresenter()
+            let interactor: any CurrencyListInteractorProtocol = CurrencyListInteractor(apiManager: apiManager, presenter: presenter)
             return CurrencyListScreen(interactor: interactor, presenter: presenter)
         }
     }

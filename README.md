@@ -56,21 +56,9 @@ Using fastlane and Github Actions, pipeline runs on one of the 3 environments de
 
 
 ## Todo
-#### Pagination
-I started implementing the Pagination, but I believe there an issue with the observation.
-
-
-#### Pull to refresh
-Currently user needs to heavily pull to refresh the contents. A better UX will be just a soft pull and adding an activity indicator.
-
-
 #### Local Data Source
 Implementing local database will improve the UX. there will be no need to wait to load the data every single time the user opens the application, and in case of the network disconnection there will be visible data for the user if app opened previously while there was network connection.
 since the usage of third-party libraries is prohibited, then the only option is CoreData. If I had the option I'd rather go with RealmSwift; Realm is faster and easier to set up, while CoreData easier to handle complex data and easier in migration and in the situation of this application there is no obvious complexity.
-
-
-####Caching
-Adding caching to the application for the network images will cause an absolute improvement for the UX.
 
 
 #### UnitTest

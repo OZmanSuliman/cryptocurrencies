@@ -13,20 +13,16 @@ struct CurrencyListScreen: View {
     @StateObject var store = AppState.shared
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
-    let interactor: CurrencyListInteractorProtocol
-    let presenter: CurrencyListPresenterProtocol
+    let interactor: any CurrencyListInteractorProtocol
+    let presenter: any CurrencyListPresenterProtocol
     
-    init(interactor: CurrencyListInteractorProtocol, presenter: CurrencyListPresenterProtocol) {
-        self.interactor = interactor
-        self.presenter = presenter
-    }
     
     var body: some View {
         NavigationView {
             switch store.stateCalculator {
             case let .loaded(currencyList):
                 if let currencyList = currencyList as? [CryptocurrencyModel] {
-                    CurrencyListContentView(interactor: interactor, CurrencyList: currencyList, membersListIsFull: presenter.membersListIsFull)
+                    CurrencyListContentView<CurrencyListInteractor, CurrencyListPresenter>(presenter: presenter, interactor: interactor, CurrencyList: currencyList, membersListIsFull: presenter.membersListIsFull)
                         .background(Color.white)
                         .navigationBarHidden(true)
                 } else {
@@ -51,6 +47,9 @@ struct CurrencyListScreen: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .background(Color.white)
         .navigationBarBackButtonHidden(true)
+        .onAppear{
+            interactor.fetchCurrency(nil)
+        }
     }
 }
 

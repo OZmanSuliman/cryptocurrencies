@@ -14,9 +14,9 @@ class CurrencyListInteractorMock {
     private let apiManager: ApiManagerProtocol
     private var data: Data?
     private let decoder = JSONDecoder()
-    private var presenter: CurrencyListPresenterProtocol
+    private var presenter: any CurrencyListPresenterProtocol
 
-    init(apiManager: ApiManagerProtocol, presenter: CurrencyListPresenterProtocol) {
+    init(apiManager: ApiManagerProtocol, presenter: any CurrencyListPresenterProtocol) {
         self.apiManager = apiManager
         self.presenter = presenter
         fetchCurrency()

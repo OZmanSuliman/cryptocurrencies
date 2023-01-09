@@ -6,21 +6,22 @@
 //
 
 import Foundation
-
+import Combine
 // MARK: - CurrencyListPresenterProtocol
 
-protocol CurrencyListPresenterProtocol {
+protocol CurrencyListPresenterProtocol: ObservableObject {
     func CurrencyListSuccessed(model: CryptocurrencyBaseModel)
     func CurrencyListFaild(error: String)
     var itemsCount: Int { get }
     var membersListIsFull: Bool? { get set }
+    var cryptocurrencyModel: [CryptocurrencyModel] { get set }
 }
 
 // MARK: - CurrencyListPresenter
 
-class CurrencyListPresenter {
+class CurrencyListPresenter: CurrencyListPresenterProtocol  {
     private let store = AppState.shared
-    private var cryptocurrencyModel: [CryptocurrencyModel] = []
+    @Published var cryptocurrencyModel: [CryptocurrencyModel] = []
     private var membersListFull = false
     private var itemsListCount: Int = 0
     init() {
@@ -30,7 +31,7 @@ class CurrencyListPresenter {
 
 // MARK: CurrencyListPresenterProtocol
 
-extension CurrencyListPresenter: CurrencyListPresenterProtocol {
+extension CurrencyListPresenter {
     var itemsCount: Int {
         itemsListCount
     }
@@ -56,6 +57,7 @@ extension CurrencyListPresenter: CurrencyListPresenterProtocol {
     func CurrencyListSuccessed(model: CryptocurrencyBaseModel) {
         guard let fetchedCryptocurrency = model.cryptocurrencyModel else { return }
         cryptocurrencyModel.append(contentsOf: fetchedCryptocurrency)
+//        cryptocurrencyModel = Array(Set(cryptocurrencyModel))
         itemsListCount = cryptocurrencyModel.count
         store.stateCalculator = .loaded(cryptocurrencyModel)
     }
