@@ -19,10 +19,26 @@ struct NetworkImageView: View {
         VStack{
             // Use the AsyncImage view to asynchronously load the image
             if isLoading {
-                ActivityIndicatorView()
+                CacheAsyncImage(
+                    url: nil,
+                    id: id
+                ) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                    case .failure(_):
+                        ActivityIndicatorView()
+                    @unknown default:
+                        fatalError()
+                    }
+                }
+                .frame(width: 25, height: 25)
             } else if let imageURL = imageURL {
                 CacheAsyncImage(
-                    url: imageURL
+                    url: imageURL, id: id
                 ) { phase in
                     switch phase {
                     case .empty:
@@ -39,7 +55,8 @@ struct NetworkImageView: View {
                 }
                 .frame(width: 25, height: 25)
             } else {
-                ActivityIndicatorView()
+                Image("appLogo")
+                    .resizable()
             }
         }
         .onAppear{
@@ -80,30 +97,30 @@ struct NetworkImageView: View {
 
 struct CacheAsyncImage<Content>: View where Content: View {
 
-    private let url: URL
+    private let url: URL?
+    private let id: String
     private let scale: CGFloat
     private let transaction: Transaction
     private let content: (AsyncImagePhase) -> Content
 
     init(
-        url: URL,
+        url: URL?,
+        id: String,
         scale: CGFloat = 1.0,
         transaction: Transaction = Transaction(),
         @ViewBuilder content: @escaping (AsyncImagePhase) -> Content
     ) {
         self.url = url
+        self.id = id
         self.scale = scale
         self.transaction = transaction
         self.content = content
     }
 
     var body: some View {
-
-        if let cached = ImageCache[url] {
-            let _ = print("cached \(url.absoluteString)")
+        if let cached = ImageCache[id] {
             content(.success(cached))
-        } else {
-            let _ = print("request \(url.absoluteString)")
+        } else if let url = url {
             AsyncImage(
                 url: url,
                 scale: scale,
@@ -111,12 +128,14 @@ struct CacheAsyncImage<Content>: View where Content: View {
             ) { phase in
                 cacheAndRender(phase: phase)
             }
+        } else {
+            ProgressView()
         }
     }
 
     func cacheAndRender(phase: AsyncImagePhase) -> some View {
         if case .success(let image) = phase {
-            ImageCache[url] = image
+            ImageCache[id] = image
         }
 
         return content(phase)
@@ -125,9 +144,9 @@ struct CacheAsyncImage<Content>: View where Content: View {
 
 
 fileprivate class ImageCache {
-    static private var cache: [URL: Image] = [:]
+    static private var cache: [String: Image] = [:]
 
-    static subscript(url: URL) -> Image? {
+    static subscript(url: String) -> Image? {
         get {
             ImageCache.cache[url]
         }

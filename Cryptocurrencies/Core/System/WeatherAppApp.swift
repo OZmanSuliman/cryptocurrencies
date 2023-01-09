@@ -21,9 +21,17 @@ struct CryptocurrenciesApp: App {
 
     func setInteractor() -> CurrencyListScreen {
         if EnvironmentManager.shared.checkIsDev() {
+             var jsonData: Data?
+
+            do {
+                let fileUrl = Bundle.main.url(forResource: "jsonFile", withExtension: "json")!
+                jsonData = try Data(contentsOf: fileUrl)
+            } catch {
+                // handle error
+            }
             let apiManager = ApiManagerMock()
             let presenter: any CurrencyListPresenterProtocol = CurrencyListPresenter()
-            let interactor: any CurrencyListInteractorProtocol = CurrencyListInteractorMock(apiManager: apiManager, presenter: presenter)
+            let interactor: any CurrencyListInteractorProtocol = CurrencyListInteractorMock(apiManager: apiManager, presenter: presenter, jsonData: jsonData)
             return CurrencyListScreen(interactor: interactor, presenter: presenter)
         } else {
             let apiManager = ApiManager.shared

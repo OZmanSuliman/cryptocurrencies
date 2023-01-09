@@ -12,8 +12,8 @@ import XCTest
 class WeatherAppTests: XCTestCase {
     var apiManager: ApiManager!
     var environmentManager: EnvironmentManager!
-    var currencyListPresenter: CurrencyListPresenterProtocol!
-    var currencyListInteractor: CurrencyListInteractorProtocol!
+    var currencyListPresenter: (any CurrencyListPresenterProtocol)!
+    var currencyListInteractor: (any CurrencyListInteractorProtocol)!
     var store: AppState!
 
     override func setUpWithError() throws {
@@ -31,6 +31,16 @@ class WeatherAppTests: XCTestCase {
     }
 
     func test_interactor() {
+        var jsonData: Data?
+
+        do {
+            let fileUrl = Bundle.main.url(forResource: "jsonFile", withExtension: "json")!
+            jsonData = try Data(contentsOf: fileUrl)
+        } catch {
+            // handle error
+        }
+
+        let mockupInteractor = CurrencyListInteractorMock(apiManager: self.apiManager, presenter: self.currencyListPresenter, jsonData: jsonData)
         let expectation = self.expectation(description: "interactor")
         XCTAssertNotNil(store.stateCalculator)
         currencyListInteractor.fetchCurrency() {
