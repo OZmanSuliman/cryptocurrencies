@@ -8,17 +8,16 @@
 import SwiftUI
 
 // MARK: - NetworkImageView
+
 struct NetworkImageView: View {
-    // Declare a new state variable to store the image URL
-    @State private var imageURL: URL?
-    @State private var isLoading = false
     let id: String
     @State var isCached = false
-    
+    @ObservedObject var presenter: NetworkImagePresenter
+    @ObservedObject var interactor: NetworkImageInteractor
+
     var body: some View {
-        VStack{
-            // Use the AsyncImage view to asynchronously load the image
-            if isLoading {
+        VStack {
+            if presenter.isLoading {
                 CacheAsyncImage(
                     url: nil,
                     id: id,
@@ -28,10 +27,10 @@ struct NetworkImageView: View {
                     case .empty:
                         ProgressView()
                             .tint(.black)
-                    case .success(let image):
+                    case let .success(image):
                         image
                             .resizable()
-                    case .failure(_):
+                    case .failure:
                         ProgressView()
                             .tint(.black)
                     @unknown default:
@@ -39,7 +38,7 @@ struct NetworkImageView: View {
                     }
                 }
                 .frame(width: 25, height: 25)
-            } else if let imageURL = imageURL {
+            } else if let imageURL = presenter.imageURL {
                 CacheAsyncImage(
                     url: imageURL,
                     id: id,
@@ -49,10 +48,10 @@ struct NetworkImageView: View {
                     case .empty:
                         ProgressView()
                             .tint(.black)
-                    case .success(let image):
+                    case let .success(image):
                         image
                             .resizable()
-                    case .failure(_):
+                    case .failure:
                         Image(Strings.appLogo.rawValue)
                             .resizable()
                     @unknown default:
@@ -65,37 +64,14 @@ struct NetworkImageView: View {
                     .resizable()
             }
         }
-        .onAppear{
-            if imageURL == nil {
+        .onAppear {
+            if presenter.imageURL == nil {
                 fetchURL()
             }
         }
     }
-    
+
     private func fetchURL() {
-        DispatchQueue.main.async {
-            isLoading = true
-        }
-        // Make the API request to get the image URL
-        let request = MetadataRequest(id: id)
-        ApiManager().apiRequest(request, withSuccess: { (response: MetadataResponse?, _, _) in
-            if let currencyBaseModel = response?.currencyDetails , currencyBaseModel.status?.error_code == 0 {
-                let iconURL = currencyBaseModel.data?.cryptocurrencyMetadata?.logo
-                self.imageURL = URL(string: iconURL ?? Strings.NA.fullString())!
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
-            } else if self.isCached == false {
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
-            }
-        }) { (error: Error) in
-            // In case of an error, you could handle it here
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-        }
+        interactor.fetchURL(id: id, cached: $isCached)
     }
 }
-

@@ -184,6 +184,16 @@
 		2DBE463A296D4FCF0084535B /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4637296D4FCF0084535B /* DoubleExt.swift */; };
 		2DBE463B296D4FCF0084535B /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4637296D4FCF0084535B /* DoubleExt.swift */; };
 		2DBE463C296D4FCF0084535B /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4637296D4FCF0084535B /* DoubleExt.swift */; };
+		2DBE463F296D69D20084535B /* NetworkImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */; };
+		2DBE4640296D69D20084535B /* NetworkImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */; };
+		2DBE4641296D69D20084535B /* NetworkImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */; };
+		2DBE4642296D69D20084535B /* NetworkImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */; };
+		2DBE4643296D69D20084535B /* NetworkImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */; };
+		2DBE4645296D69DD0084535B /* NetworkImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */; };
+		2DBE4646296D69DD0084535B /* NetworkImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */; };
+		2DBE4647296D69DD0084535B /* NetworkImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */; };
+		2DBE4648296D69DD0084535B /* NetworkImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */; };
+		2DBE4649296D69DD0084535B /* NetworkImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +278,8 @@
 		2DBE462B296D4F750084535B /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		2DBE4631296D4FA00084535B /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		2DBE4637296D4FCF0084535B /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageInteractor.swift; sourceTree = "<group>"; };
+		2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImagePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,8 +396,8 @@
 		2D4C1FD628C89D9200A9F8DE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				2DBE463D296D69A80084535B /* NetworkImage */,
 				2D4C202B28C8AA9200A9F8DE /* BlurBG.swift */,
-				2D4C203128C8AA9200A9F8DE /* NetworkImageView.swift */,
 				2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */,
 			);
 			path = CustomViews;
@@ -617,6 +629,16 @@
 				2D4C1FF128C89F9300A9F8DE /* RandomAccessCollectionExt.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		2DBE463D296D69A80084535B /* NetworkImage */ = {
+			isa = PBXGroup;
+			children = (
+				2D4C203128C8AA9200A9F8DE /* NetworkImageView.swift */,
+				2DBE463E296D69D20084535B /* NetworkImageInteractor.swift */,
+				2DBE4644296D69DD0084535B /* NetworkImagePresenter.swift */,
+			);
+			path = NetworkImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -852,8 +874,10 @@
 				2D83231429563FCA0091C92D /* CryptocurrencyMetadata.swift in Sources */,
 				2D4C203828C8AA9200A9F8DE /* BlurBG.swift in Sources */,
 				2D2C886828CA387900CBD115 /* APIResponseProtocol.swift in Sources */,
+				2DBE463F296D69D20084535B /* NetworkImageInteractor.swift in Sources */,
 				2D89D19128C9B00F0076204A /* APIRequestProtocol.swift in Sources */,
 				2D4C203E28C8AA9200A9F8DE /* NetworkImageView.swift in Sources */,
+				2DBE4645296D69DD0084535B /* NetworkImagePresenter.swift in Sources */,
 				2DBE4632296D4FA00084535B /* StringExt.swift in Sources */,
 				2D4C203628C8AA9200A9F8DE /* CurrencyListLoadingView.swift in Sources */,
 				2D4C203F28C8AA9200A9F8DE /* CurrencyRow.swift in Sources */,
@@ -874,6 +898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DBE4648296D69DD0084535B /* NetworkImagePresenter.swift in Sources */,
 				2DBE4610296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */,
 				2DBE4623296D4F2B0084535B /* ColorExt.swift in Sources */,
 				2DBE4635296D4FA00084535B /* StringExt.swift in Sources */,
@@ -882,6 +907,7 @@
 				2DBE462F296D4F750084535B /* ViewExt.swift in Sources */,
 				2DBE4616296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 				2DBE463B296D4FCF0084535B /* DoubleExt.swift in Sources */,
+				2DBE4642296D69D20084535B /* NetworkImageInteractor.swift in Sources */,
 				2DBE4629296D4F540084535B /* DeviceRotationViewModifierExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -892,6 +918,8 @@
 			files = (
 				2D4C1FC428C89D7200A9F8DE /* CryptocurrenciesUITests.swift in Sources */,
 				2DBE4624296D4F2B0084535B /* ColorExt.swift in Sources */,
+				2DBE4643296D69D20084535B /* NetworkImageInteractor.swift in Sources */,
+				2DBE4649296D69DD0084535B /* NetworkImagePresenter.swift in Sources */,
 				2DBE4617296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 				2DBE461D296D32F50084535B /* Strings.swift in Sources */,
 				2DBE463C296D4FCF0084535B /* DoubleExt.swift in Sources */,
@@ -928,6 +956,7 @@
 				2D89D1A728C9B6760076204A /* APIEndpoints.swift in Sources */,
 				2DA1EB9728CB5CCC00EE4A1E /* FetchCurrencyResponseMock.swift in Sources */,
 				2D83230429563B140091C92D /* CryptocurrencyModel.swift in Sources */,
+				2DBE4641296D69D20084535B /* NetworkImageInteractor.swift in Sources */,
 				2D83230729563B140091C92D /* USD.swift in Sources */,
 				2DBE463A296D4FCF0084535B /* DoubleExt.swift in Sources */,
 				2D4C206C28C8B53300A9F8DE /* WeatherAppApp.swift in Sources */,
@@ -951,6 +980,7 @@
 				2D83232D295749F00091C92D /* MetadataResponseMock.swift in Sources */,
 				2D83232E295749F00091C92D /* MetadataRequest.swift in Sources */,
 				2D83231C29563FCA0091C92D /* MetadataBaseModel.swift in Sources */,
+				2DBE4647296D69DD0084535B /* NetworkImagePresenter.swift in Sources */,
 				2D8322F0295615880091C92D /* Status.swift in Sources */,
 				2D4C207828C8B53300A9F8DE /* CurrencyListScreen.swift in Sources */,
 				2D83231329563FCA0091C92D /* Urls.swift in Sources */,
@@ -983,6 +1013,7 @@
 				2D89D1A628C9B6760076204A /* APIEndpoints.swift in Sources */,
 				2DA1EB9628CB5CCC00EE4A1E /* FetchCurrencyResponseMock.swift in Sources */,
 				2D83230329563B140091C92D /* CryptocurrencyModel.swift in Sources */,
+				2DBE4640296D69D20084535B /* NetworkImageInteractor.swift in Sources */,
 				2D83230629563B140091C92D /* USD.swift in Sources */,
 				2DBE4639296D4FCF0084535B /* DoubleExt.swift in Sources */,
 				2D4C20AC28C8B53600A9F8DE /* WeatherAppApp.swift in Sources */,
@@ -1006,6 +1037,7 @@
 				2D832331295749F10091C92D /* MetadataResponseMock.swift in Sources */,
 				2D832332295749F10091C92D /* MetadataRequest.swift in Sources */,
 				2D83231B29563FCA0091C92D /* MetadataBaseModel.swift in Sources */,
+				2DBE4646296D69DD0084535B /* NetworkImagePresenter.swift in Sources */,
 				2D8322EF295615880091C92D /* Status.swift in Sources */,
 				2D4C20B828C8B53600A9F8DE /* CurrencyListScreen.swift in Sources */,
 				2D83231229563FCA0091C92D /* Urls.swift in Sources */,

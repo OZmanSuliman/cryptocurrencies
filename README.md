@@ -66,10 +66,6 @@ since the usage of third-party libraries is prohibited, then the only option is 
 Currently there is not much in the unit test, but the app is developed in a a generic way which makes its testablity high.
 
 
-#### Architecture Reduction
-There is a small part of the code isn't placed in the right components, by restrucuring the code the architecture will be more Ideally.
-
-
 #### Design Pattrens
 Add factory pattern to manage the services, which will make the code cleaner and more readable
 

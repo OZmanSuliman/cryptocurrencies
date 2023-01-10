@@ -7,49 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB666350-C07E-486F-BAE9-117FADBE5D53"
+            uuid = "DB4CE49B-DACE-442A-8E8B-483604643B98"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Cryptocurrencies/Flows/CurrencyList/CurrencyListScreen.swift"
+            filePath = "Cryptocurrencies/CustomViews/NetworkImage/NetworkImageInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "051AF251-FD6D-45D9-B3D7-EC9438351465"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cryptocurrencies/Flows/CurrencyList/SubViews/CurrencyListErrorView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "init(error:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "fetchURL(id:cached:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5D7B1ECA-D828-4EF4-8A55-697DEBFE329D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Cryptocurrencies/Flows/CurrencyList/SubViews/CurrencyListErrorView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

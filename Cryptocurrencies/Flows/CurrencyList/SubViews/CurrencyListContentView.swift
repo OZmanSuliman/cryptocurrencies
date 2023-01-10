@@ -29,9 +29,8 @@ struct CurrencyListContentView<Interactor, Presenter>: View where Interactor: Cu
     var body: some View {
         ZStack(alignment: .top, content: {
             List {
-                
                 AnimatedTopView(appBarHeight: $appBarHeight, show: $show)
-                
+
                 if !presenter.cryptocurrencyModel.isEmpty {
                     ForEach(presenter.cryptocurrencyModel) { item in
                         CurrencyRow(currencyModel: item)
@@ -62,7 +61,6 @@ struct CurrencyListContentView<Interactor, Presenter>: View where Interactor: Cu
                         Spacer(minLength: 300)
                     }
                 }
-            
             }
             .refreshable {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

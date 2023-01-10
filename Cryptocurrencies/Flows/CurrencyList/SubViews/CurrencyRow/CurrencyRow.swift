@@ -10,6 +10,7 @@ import SwiftUI
 struct CurrencyRow: View {
     var currencyModel: CryptocurrencyModel
     var presenter: CurrencyRowPresenterProtocol
+    let networkImagePresenter = NetworkImagePresenter()
 
     init(currencyModel: CryptocurrencyModel, presenter: CurrencyRowPresenterProtocol = CurrencyRowPresenter()) {
         self.presenter = presenter
@@ -18,7 +19,7 @@ struct CurrencyRow: View {
 
     var body: some View {
         HStack(alignment: .top) {
-            NetworkImageView(id: presenter.id(model: currencyModel))
+            NetworkImageView(id: presenter.id(model: currencyModel), presenter: networkImagePresenter, interactor: NetworkImageInteractor(presenter: networkImagePresenter))
                 .frame(width: 30, height: 30, alignment: .bottom)
             Spacer()
             Text(presenter.name(model: currencyModel))

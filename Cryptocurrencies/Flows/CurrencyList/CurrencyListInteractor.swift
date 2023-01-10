@@ -24,11 +24,8 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     private let decoder = JSONDecoder()
     private var presenter: any CurrencyListPresenterProtocol
     private var cryptocurrencyModel: [CryptocurrencyModel] = []
-    // Tells if all records have been loaded. (Used to hide/show activity spinner)
     private var membersListFull = false
-    // Tracks last page loaded. Used to load next page (current + 1)
     private var currentPage = 0
-    // Limit of records per page. (Only if backend supports, it usually does)
     private let perPage = 10
     private var isFetching = false
 
@@ -62,31 +59,25 @@ extension CurrencyListInteractor {
         let perPageStr = "\(perPage)"
         let request = FetchCurrencyRequest(start: start, limit: perPageStr)
         apiManager.apiRequest(request, withSuccess: { [weak self] (response: FetchCurrencyResponse?, _, _) in
-            if let CurrencyBaseModel = response?.CurrencyList, CurrencyBaseModel.status?.error_code == 0  {
-                
-                    self?.currentPage += 1
-                    if CurrencyBaseModel.cryptocurrencyModel?.count ?? 0 < self?.perPage ?? 10 {
-                        self?.membersListFull = true
-                    }
-                    // notify presenter
-                    DispatchQueue.main.async {
-                        self?.presenter.CurrencyListSuccessed(model: CurrencyBaseModel)
-                    }
-                } else {
-                    
-                    DispatchQueue.main.async {
-                        #warning("add custom error enum")
-                        let error =  response?.CurrencyList?.status?.error_message ?? Strings.defaultError.fullString()
-                        self?.presenter.CurrencyListFaild(error: error)
-                        self?.isFetching = false
-                    
+            if let CurrencyBaseModel = response?.CurrencyList, CurrencyBaseModel.status?.error_code == 0 {
+                self?.currentPage += 1
+                if CurrencyBaseModel.cryptocurrencyModel?.count ?? 0 < self?.perPage ?? 10 {
+                    self?.membersListFull = true
+                }
+                // notify presenter
+                DispatchQueue.main.async {
+                    self?.presenter.CurrencyListSuccessed(model: CurrencyBaseModel)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let error = response?.CurrencyList?.status?.error_message ?? Strings.defaultError.fullString()
+                    self?.presenter.CurrencyListFaild(error: error)
+                    self?.isFetching = false
                 }
             }
-            print(response?.CurrencyList as Any)
             self?.isFetching = false
         }) { (error: Error) in
             DispatchQueue.main.async {
-                #warning("add custom error enum")
                 self.presenter.CurrencyListFaild(error: error.localizedDescription)
                 self.isFetching = false
             }
