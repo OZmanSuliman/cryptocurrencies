@@ -31,16 +31,16 @@ platform :ios do
 
   lane :staging do
         
-build_app(scheme: "Cryptocurrencies-Staging",skip_archive: true,export_method: "development",destination: "name=iPhone 12,OS=15.2")
+build_app(scheme: "Cryptocurrencies-Staging",skip_archive: true,export_method: "development",destination: "name=iPhone 14,OS=16.1")
 
 #upload to TestFlight or any alternative platform
 
   end
 
   lane :release do
- build_app(scheme: "Cryptocurrencies-Dev",
+ build_app(scheme: "Cryptocurrencies",
 skip_archive: true,
-destination: "name=iPhone 12,OS=15.2")
+destination: "name=iPhone 14,OS=16.1")
 #upload to App Store
 
   end
