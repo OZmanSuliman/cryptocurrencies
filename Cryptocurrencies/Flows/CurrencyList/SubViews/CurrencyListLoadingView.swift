@@ -17,7 +17,7 @@ struct CurrencyListLoadingView: View {
 
     init() {
         if UIDevice.current.orientation.isLandscape {
-            appBarHeight = 2.0
+            appBarHeight = 1.5
         }
     }
     var body: some View {
@@ -72,7 +72,7 @@ struct CurrencyListLoadingView: View {
                 orientation = newOrientation
                 switch newOrientation {
                 case .landscapeLeft, .landscapeRight:
-                    appBarHeight = 2.0
+                    appBarHeight = 1.5
                 case .unknown, .portrait, .portraitUpsideDown, .faceUp, .faceDown:
                     appBarHeight = 3.5
                 @unknown default:

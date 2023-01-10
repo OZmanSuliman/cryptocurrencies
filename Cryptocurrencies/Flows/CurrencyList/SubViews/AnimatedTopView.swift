@@ -21,7 +21,7 @@ struct AnimatedTopView: View {
         self.headView = headView
         self.bodyView = bodyView
         if UIDevice.current.orientation.isLandscape {
-            appBarHeight = 2.0
+            appBarHeight = 1.5
         }
     }
 
@@ -77,7 +77,7 @@ struct AnimatedTopView: View {
                 orientation = newOrientation
                 switch newOrientation {
                 case .landscapeLeft, .landscapeRight:
-                    appBarHeight = 2.0
+                    appBarHeight = 1.5
                 case .unknown, .portrait, .portraitUpsideDown, .faceUp, .faceDown:
                     appBarHeight = 3.5
                 @unknown default:

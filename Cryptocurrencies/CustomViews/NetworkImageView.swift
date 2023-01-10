@@ -13,7 +13,7 @@ struct NetworkImageView: View {
     @State private var imageURL: URL?
     @State private var isLoading = false
     let id: String
-    
+    @State var isCached = false
     
     var body: some View {
         VStack{
@@ -21,7 +21,8 @@ struct NetworkImageView: View {
             if isLoading {
                 CacheAsyncImage(
                     url: nil,
-                    id: id
+                    id: id,
+                    isCached: $isCached
                 ) { phase in
                     switch phase {
                     case .empty:
@@ -38,7 +39,9 @@ struct NetworkImageView: View {
                 .frame(width: 25, height: 25)
             } else if let imageURL = imageURL {
                 CacheAsyncImage(
-                    url: imageURL, id: id
+                    url: imageURL,
+                    id: id,
+                    isCached: $isCached
                 ) { phase in
                     switch phase {
                     case .empty:
@@ -79,7 +82,7 @@ struct NetworkImageView: View {
                 DispatchQueue.main.async {
                     self.isLoading = false
                 }
-            } else {
+            } else if self.isCached == false {
                 DispatchQueue.main.async {
                     self.isLoading = false
                 }
@@ -102,16 +105,18 @@ struct CacheAsyncImage<Content>: View where Content: View {
     private let scale: CGFloat
     private let transaction: Transaction
     private let content: (AsyncImagePhase) -> Content
-
+    @Binding var isCached: Bool
     init(
         url: URL?,
         id: String,
+        isCached: Binding<Bool>,
         scale: CGFloat = 1.0,
         transaction: Transaction = Transaction(),
         @ViewBuilder content: @escaping (AsyncImagePhase) -> Content
     ) {
         self.url = url
         self.id = id
+        self._isCached = isCached
         self.scale = scale
         self.transaction = transaction
         self.content = content
@@ -120,6 +125,9 @@ struct CacheAsyncImage<Content>: View where Content: View {
     var body: some View {
         if let cached = ImageCache[id] {
             content(.success(cached))
+                .onAppear{
+                    self.isCached = true
+                }
         } else if let url = url {
             AsyncImage(
                 url: url,
