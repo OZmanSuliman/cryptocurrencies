@@ -158,6 +158,11 @@
 		2DBE460F296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE460D296C23830084535B /* CryptocurrencyBaseModelJson.swift */; };
 		2DBE4610296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE460D296C23830084535B /* CryptocurrencyBaseModelJson.swift */; };
 		2DBE4611296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE460D296C23830084535B /* CryptocurrencyBaseModelJson.swift */; };
+		2DBE4613296D2EF60084535B /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */; };
+		2DBE4614296D2EF60084535B /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */; };
+		2DBE4615296D2EF60084535B /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */; };
+		2DBE4616296D2EF60084535B /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */; };
+		2DBE4617296D2EF60084535B /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +243,7 @@
 		2DA4A15028C9122100A2FB94 /* Cryptocurrencies-Staging-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cryptocurrencies-Staging-Info.plist"; sourceTree = "<group>"; };
 		2DA4A15128C9122A00A2FB94 /* Cryptocurrencies-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cryptocurrencies-Info.plist"; sourceTree = "<group>"; };
 		2DBE460D296C23830084535B /* CryptocurrencyBaseModelJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyBaseModelJson.swift; sourceTree = "<group>"; };
+		2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +364,7 @@
 				2D4C202B28C8AA9200A9F8DE /* BlurBG.swift */,
 				2D4C202D28C8AA9200A9F8DE /* CustomBackButton.swift */,
 				2D4C203128C8AA9200A9F8DE /* NetworkImageView.swift */,
+				2DBE4612296D2EF60084535B /* CacheAsyncImage.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -795,6 +802,7 @@
 				2D4C1FF528C89F9300A9F8DE /* EnvironmentManager.swift in Sources */,
 				2D4C1FF928C89F9300A9F8DE /* APIMock.swift in Sources */,
 				2D8322EB295615880091C92D /* CryptocurrencyBaseModel.swift in Sources */,
+				2DBE4613296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 				2D4C203528C8AA9200A9F8DE /* TopView.swift in Sources */,
 				2DA1EB9928CB5D1F00EE4A1E /* FetchCurrencyRequestMock.swift in Sources */,
 				2D4C203C28C8AA9200A9F8DE /* CurrencyListErrorView.swift in Sources */,
@@ -830,6 +838,7 @@
 			files = (
 				2DBE4610296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */,
 				2D4C1FBA28C89D7200A9F8DE /* CryptocurrenciesTests.swift in Sources */,
+				2DBE4616296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +847,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4C1FC428C89D7200A9F8DE /* CryptocurrenciesUITests.swift in Sources */,
+				2DBE4617296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 				2D4C1FC628C89D7200A9F8DE /* CryptocurrenciesUITestsLaunchTests.swift in Sources */,
 				2DBE4611296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */,
 			);
@@ -873,6 +883,7 @@
 				2D83230729563B140091C92D /* USD.swift in Sources */,
 				2D4C206C28C8B53300A9F8DE /* WeatherAppApp.swift in Sources */,
 				2D83230129563B140091C92D /* Quote.swift in Sources */,
+				2DBE4615296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 				2DBE460F296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */,
 				2D4C206E28C8B53300A9F8DE /* Extentions.swift in Sources */,
 				2D83231629563FCA0091C92D /* CryptocurrencyMetadata.swift in Sources */,
@@ -924,6 +935,7 @@
 				2D83230629563B140091C92D /* USD.swift in Sources */,
 				2D4C20AC28C8B53600A9F8DE /* WeatherAppApp.swift in Sources */,
 				2D83230029563B140091C92D /* Quote.swift in Sources */,
+				2DBE4614296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
 				2DBE460E296C23830084535B /* CryptocurrencyBaseModelJson.swift in Sources */,
 				2D4C20AE28C8B53600A9F8DE /* Extentions.swift in Sources */,
 				2D83231529563FCA0091C92D /* CryptocurrencyMetadata.swift in Sources */,

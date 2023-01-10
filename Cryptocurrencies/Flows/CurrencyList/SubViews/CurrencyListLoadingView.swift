@@ -14,47 +14,13 @@ struct CurrencyListLoadingView: View {
     @State private var appBarHeight: CGFloat = 3.5
     @State var show = false
     @State private var orientation = UIDeviceOrientation.unknown
+    @State var animateTrimPath = false
+    @State var rotaeInfinity = false
 
-    init() {
-        if UIDevice.current.orientation.isLandscape {
-            appBarHeight = 1.5
-        }
-    }
     var body: some View {
         ZStack(alignment: .top, content: {
             List {
-                GeometryReader { g in
-                    ZStack {
-                        Image("banner")
-                            .resizable()
-                        VStack {
-                            // head content
-                            setHead()
-                        }
-                    }
-                    .frame(width: UIScreen.main.bounds.width, height: g.frame(in: .global).minY > 0 ? UIScreen.main.bounds.height / appBarHeight + g.frame(in: .global).minY : UIScreen.main.bounds.height / appBarHeight)
-                    .onReceive(self.time) { _ in
-                        // its not a timer...
-                        // for tracking the image is scrolled out or not...
-                        let y = g.frame(in: .global).minY
-                        if -y > (UIScreen.main.bounds.height / appBarHeight) - 50 {
-                            withAnimation {
-                                self.show = true
-                            }
-                        } else {
-                            withAnimation {
-                                self.show = false
-                            }
-                        }
-                    }
-                }
-                .frame(width: UIScreen.main.bounds.size.width, alignment: .center)
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets())
-                // fixing default height...
-                .frame(height: UIScreen.main.bounds.height / appBarHeight + 0.2)
-                // body content
+                AnimatedTopView(appBarHeight: $appBarHeight, show: $show)
                 setBody()
                     .frame(width: UIScreen.main.bounds.size.width, alignment: .center)
                     .listRowBackground(Color.clear)
@@ -83,22 +49,51 @@ struct CurrencyListLoadingView: View {
 }
 
 extension CurrencyListLoadingView {
-    func setHead() -> AnyView {
-        return AnyView(
-            VStack {
-                ActivityIndicatorView()
-            }
-        )
-    }
-
     func setBody() -> AnyView {
         AnyView(
             VStack {
                 Spacer(minLength: 100)
-                ActivityIndicatorView()
+                setIndicator()
+                    .frame(width: 50, height: 50)
+                    
 
             }
             .padding()
+        )
+    }
+    
+    func setIndicator() -> AnyView {
+        AnyView(
+        ZStack {
+            Path { path in
+                path.addLines([
+                    .init(x: 2, y: 1),
+                    .init(x: 1, y: 0),
+                    .init(x: 0, y: 1),
+                    .init(x: 1, y: 2),
+                    .init(x: 3, y: 0),
+                    .init(x: 4, y: 1),
+                    .init(x: 3, y: 2),
+                    .init(x: 2, y: 1)
+                ])
+            }
+            .trim(from: animateTrimPath ? 1/0.99 : 0, to: animateTrimPath ? 1/0.99 : 1)
+            .scale(50, anchor: .topLeading)
+            .stroke(Color.yellow, lineWidth: 20)
+            .offset(x: 110, y: 350)
+            .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true))
+            .onAppear() {
+                self.animateTrimPath.toggle()
+            }
+        }
+        .rotationEffect(.degrees(rotaeInfinity ? 0 : -360))
+        .scaleEffect(0.3, anchor: .center)
+        .animation(Animation.easeInOut(duration: 1.5)
+        .repeatForever(autoreverses: false))
+        .edgesIgnoringSafeArea(.all)
+        .onAppear(){
+            self.rotaeInfinity.toggle()
+        }
         )
     }
 }
