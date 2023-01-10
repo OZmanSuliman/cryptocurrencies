@@ -17,7 +17,7 @@ default_platform(:ios)
 
 before_all do
   update_fastlane
-  xcversion(version: "13.2.1")
+  xcversion(version: "14.1")
 end
 
 platform :ios do
