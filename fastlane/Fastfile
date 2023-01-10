@@ -39,8 +39,7 @@ build_app(scheme: "Cryptocurrencies-Staging",skip_archive: true,export_method: "
 
   lane :release do
  build_app(scheme: "Cryptocurrencies-Dev",
-skip_archive: true,
-export_method: "development")
+skip_archive: true)
 #upload to App Store
 
   end
