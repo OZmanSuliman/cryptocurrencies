@@ -38,7 +38,9 @@ build_app(scheme: "Cryptocurrencies-Staging",skip_archive: true,export_method: "
   end
 
   lane :release do
- build_app(scheme: "Cryptocurrencies-Dev",skip_archive: true,export_method: "development",destination: "name=iPhone 13,OS=15.2")
+ build_app(scheme: "Cryptocurrencies-Dev",
+skip_archive: true,
+export_method: "development")
 #upload to App Store
 
   end
