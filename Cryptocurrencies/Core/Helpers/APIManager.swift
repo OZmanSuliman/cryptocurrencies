@@ -27,7 +27,7 @@ enum HTTPMethod: String {
 
 class ApiManager: ApiManagerProtocol {
     static let shared = ApiManager()
-    private let serialQueue = DispatchQueue(label: "networkSerialQueue")
+    private let serialQueue = DispatchQueue(label: Strings.networkSerialQueue.rawValue)
     func apiRequest<Response>(_ request: APIRequestProtocol, withSuccess success: @escaping apiSuccess<Response>, WithApiFailure failure: @escaping apiFailure) where Response: APIResponseProtocol {
         requestResource(serviceURL: request.endpoint, httpMethod: request.method, headers: request.headers, parameters: request.parameters, withSuccess: success, WithApiFailure: failure)
     }

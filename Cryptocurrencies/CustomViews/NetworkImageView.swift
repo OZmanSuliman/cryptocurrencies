@@ -53,7 +53,7 @@ struct NetworkImageView: View {
                         image
                             .resizable()
                     case .failure(_):
-                        Image("appLogo")
+                        Image(Strings.appLogo.rawValue)
                             .resizable()
                     @unknown default:
                         fatalError()
@@ -61,7 +61,7 @@ struct NetworkImageView: View {
                 }
                 .frame(width: 25, height: 25)
             } else {
-                Image("appLogo")
+                Image(Strings.appLogo.rawValue)
                     .resizable()
             }
         }
@@ -81,7 +81,7 @@ struct NetworkImageView: View {
         ApiManager().apiRequest(request, withSuccess: { (response: MetadataResponse?, _, _) in
             if let currencyBaseModel = response?.currencyDetails , currencyBaseModel.status?.error_code == 0 {
                 let iconURL = currencyBaseModel.data?.cryptocurrencyMetadata?.logo
-                self.imageURL = URL(string: iconURL ?? "NA")!
+                self.imageURL = URL(string: iconURL ?? Strings.NA.fullString())!
                 DispatchQueue.main.async {
                     self.isLoading = false
                 }

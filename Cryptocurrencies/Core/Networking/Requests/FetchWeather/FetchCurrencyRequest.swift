@@ -18,9 +18,9 @@ protocol FetchCurrencyRequestProtocol: APIRequestProtocol {
 struct FetchCurrencyRequest: FetchCurrencyRequestProtocol {
     var start: String
     var limit: String
-    let sort = "market_cap"
-    let cryptocurrency_type = "all"
-    let tag = "all"
+    let sort = Strings.marketCap.fullString()
+    let cryptocurrency_type = Strings.all.fullString()
+    let tag = Strings.all.fullString()
     
     init(start: String, limit: String) {
         self.start = start
@@ -31,6 +31,6 @@ struct FetchCurrencyRequest: FetchCurrencyRequestProtocol {
 
 extension FetchCurrencyRequest {
     var endpoint: String { return APIEndpoints.cryptocurrencyList.fullPath(withParameters: start, limit, sort, cryptocurrency_type, tag) }
-    var headers: [String : String] { return ["X-CMC_PRO_API_KEY": EnvironmentManager.shared.getAppKey()] }
+    var headers: [String : String] { return [Strings.apiKey.fullString(): EnvironmentManager.shared.getAppKey()] }
     var method: HTTPMethod { return .get }
 }

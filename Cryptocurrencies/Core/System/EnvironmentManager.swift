@@ -11,21 +11,20 @@ import Foundation
 
 final class EnvironmentManager {
     static let shared = EnvironmentManager()
-    fileprivate let environmentPlistName = "EnvironmentVariables"
-    fileprivate let configurationKey = "Configuration"
+    fileprivate let environmentPlistName = Strings.EnvironmentVariables.fullString()
+    fileprivate let configurationKey = Strings.Configuration.fullString()
     fileprivate var environmentsDict: NSDictionary!
     var activeConfiguration: Configuration?
 
     enum Configuration: String {
-        case debug = "Debug"
-        case staging = "Staging"
-        case release = "Release"
+        case Debug
+        case Staging
+        case Release
     }
 
     fileprivate enum EnvironmentProperty: String {
         case baseURL
         case apiKey
-        case iconUrl
         
         var stringValue: String {
             let appConfig = try? EnvironmentManager.shared.setting(self)
@@ -42,7 +41,7 @@ final class EnvironmentManager {
         let bundle = Bundle(for: EnvironmentManager.self)
         let configurationName = (bundle.infoDictionary?[configurationKey] as? String)!
         activeConfiguration = Configuration(rawValue: configurationName)
-        let environmentsPath = bundle.path(forResource: environmentPlistName, ofType: "plist")!
+        let environmentsPath = bundle.path(forResource: environmentPlistName, ofType: Strings.plist.fullString())!
         if let mainEnvironmentsDict = NSDictionary(contentsOfFile: environmentsPath),
            let activeConfigurationString = activeConfiguration?.rawValue,
            let activeDictionary = mainEnvironmentsDict[activeConfigurationString] as? NSDictionary
@@ -55,7 +54,7 @@ final class EnvironmentManager {
         if let value = environmentsDict[property.rawValue] as? String {
             return value
         }
-        throw NSError(domain: "No <\(property.rawValue)> setting has been found", code: 100_012, userInfo: nil)
+        throw NSError(domain: Strings.noSetting.fullString(withParameters: "\(property.rawValue)"), code: 100_012, userInfo: nil)
     }
 
     func getAppKey() -> String {
@@ -65,20 +64,16 @@ final class EnvironmentManager {
     func getBaseUrl() -> String {
         return EnvironmentProperty.baseURL.stringValue
     }
-
-    func iconUrl(id: String) -> String? {
-        return "\(EnvironmentProperty.iconUrl.stringValue)\(id)@2x.png"
-    }
     
     func checkIsDev() -> Bool {
-        return activeConfiguration == .debug
+        return activeConfiguration == .Debug
     }
 }
 
 // MARK: - PlistFiles
 
 internal enum PlistFiles {
-    private static let _document = PlistDocument(path: "EnvironmentVariables.plist")
+    private static let _document = PlistDocument(path: Strings.environmentVariablesPlist.fullString())
 }
 
 private func arrayFromPlist<T>(at path: String) -> [T] {
@@ -86,7 +81,7 @@ private func arrayFromPlist<T>(at path: String) -> [T] {
     guard let url = bundle.url(forResource: path, withExtension: nil),
           let data = NSArray(contentsOf: url) as? [T]
     else {
-        fatalError("Unable to load PLIST at path: \(path)")
+        fatalError(Strings.unableToLoadPLIST.fullString(withParameters: "\(path)"))
     }
     return data
 }
@@ -101,14 +96,14 @@ private struct PlistDocument {
         guard let url = bundle.url(forResource: path, withExtension: nil),
               let data = NSDictionary(contentsOf: url) as? [String: Any]
         else {
-            fatalError("Unable to load PLIST at path: \(path)")
+            fatalError(Strings.unableToLoadPLIST.fullString(withParameters: "\(path)"))
         }
         self.data = data
     }
 
     subscript<T>(key: String) -> T {
         guard let result = data[key] as? T else {
-            fatalError("Property '\(key)' is not of type \(T.self)")
+            fatalError(Strings.PropertyNotOfType.fullString(withParameters: "'\(key)'", "\(T.self)"))
         }
         return result
     }

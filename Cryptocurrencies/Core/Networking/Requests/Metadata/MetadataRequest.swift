@@ -19,6 +19,6 @@ struct MetadataRequest: MetadataRequestProtocol {
         self.id = id
     }
     var endpoint: String { return APIEndpoints.metadata.fullPath(withParameters: id) }
-    var headers: [String: String] { return ["X-CMC_PRO_API_KEY": EnvironmentManager.shared.getAppKey()] }
+    var headers: [String: String] { return [Strings.apiKey.fullString(): EnvironmentManager.shared.getAppKey()] }
     var method: HTTPMethod { return .get }
 }

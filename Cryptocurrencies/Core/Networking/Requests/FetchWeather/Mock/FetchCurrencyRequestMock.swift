@@ -10,6 +10,6 @@ import Foundation
 // MARK: - FetchCurrencyRequestMock
 
 struct FetchCurrencyRequestMock: FetchCurrencyRequestProtocol {
-    var endpoint: String { return "Currency_14" }
+    var endpoint: String { return Strings.Currency_14.fullString() }
     var method: HTTPMethod { return .get }
 }

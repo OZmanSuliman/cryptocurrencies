@@ -25,7 +25,7 @@ struct AnimatedTopView: View {
     var body: some View {
         GeometryReader { g in
             ZStack {
-                Image("banner")
+                Image(Strings.banner.fullString())
                     .resizable()
                 VStack {
                     // head content
@@ -66,16 +66,16 @@ extension AnimatedTopView {
                 VStack(alignment: .leading) {
                     Spacer(minLength: 0)
                     HStack(alignment: .top) {
-                        Image("appLogo")
+                        Image(Strings.appLogo.fullString())
                             .resizable()
                             .frame(width: 30, height: 30)
-                        Text("Weather App")
+                        Text(Strings.appName.fullString())
                             .font(.title)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                     }
                     .padding(.top)
-                    Text("One Month free, then $4.99/month.")
+                    Text(Strings.appCost.fullString())
                         .font(.caption)
                         .foregroundColor(.white)
                 }

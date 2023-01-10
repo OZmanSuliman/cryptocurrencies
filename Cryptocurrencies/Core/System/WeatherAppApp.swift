@@ -24,7 +24,7 @@ struct CryptocurrenciesApp: App {
              var jsonData: Data?
 
             do {
-                let fileUrl = Bundle.main.url(forResource: "jsonFile", withExtension: "json")!
+                let fileUrl = Bundle.main.url(forResource: Strings.jsonFile.fullString(), withExtension: Strings.json.fullString())!
                 jsonData = try Data(contentsOf: fileUrl)
             } catch {
                 // handle error

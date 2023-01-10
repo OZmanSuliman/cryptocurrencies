@@ -36,7 +36,7 @@ enum AppStateEnum: Equatable {
 class AppState: ObservableObject {
     static let shared = AppState()
     @Published private(set) var state = AppStateEnum.idle
-    private let concurrentQueue = DispatchQueue(label: "serialQueue", attributes: .concurrent)
+    private let concurrentQueue = DispatchQueue(label: Strings.appStateSerialQueue.fullString(), attributes: .concurrent)
 
     var stateCalculator: AppStateEnum {
         get {

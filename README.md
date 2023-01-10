@@ -52,7 +52,8 @@ A concurrent queue added to the AppState Singleton class to manage the usage of 
 ## CI/CD
 Using fastlane and Github Actions, pipeline runs on one of the 3 environments depending on the destination branch.
 
-
+## Multi Orientation
+The app provide Landscape and portrait modes
 
 
 ## Todo
@@ -63,10 +64,6 @@ since the usage of third-party libraries is prohibited, then the only option is 
 
 #### UnitTest
 Currently there is not much in the unit test, but the app is developed in a a generic way which makes its testablity high.
-
-
-#### handle backend error
-Currently only unexpected errors are visible to users, it's necessary to handle all type of backend errors and make them visible to user
 
 
 #### Architecture Reduction

@@ -26,7 +26,7 @@ class CurrencyRowPresenter: CurrencyRowPresenterProtocol {
             let idString = "\(id)"
             return idString
         } else {
-            return "N/A"
+            return Strings.NA.fullString()
         }
     }
     
@@ -34,7 +34,7 @@ class CurrencyRowPresenter: CurrencyRowPresenterProtocol {
         if let name = model.name {
             return name
         } else {
-            return "N/A"
+            return Strings.NA.fullString()
         }
     }
     
@@ -44,7 +44,7 @@ class CurrencyRowPresenter: CurrencyRowPresenterProtocol {
             let priceString = "\(priceRounded)"
             return priceString
         } else {
-            return "N/A"
+            return Strings.NA.fullString()
         }
     }
     
@@ -54,7 +54,7 @@ class CurrencyRowPresenter: CurrencyRowPresenterProtocol {
             let changeString = "\(changeRounded)"
             return changeString
         } else {
-            return "N/A"
+            return Strings.NA.fullString()
         }
     }
 }

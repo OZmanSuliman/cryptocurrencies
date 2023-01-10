@@ -12,16 +12,16 @@ struct TopView: View {
         HStack {
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .top) {
-                    Image("appLogo")
+                    Image(Strings.appLogo.fullString())
                         .resizable()
                         .frame(width: 30, height: 30)
-                    Text("Weather App")
+                    Text(Strings.appName.fullString())
                         .foregroundColor(.white)
                         .font(.title)
                         .foregroundColor(.black)
                         .fontWeight(.bold)
                 }
-                Text("One Month free, then $4.99/month.")
+                Text(Strings.appCost.fullString())
                     .foregroundColor(.white)
                     .font(.caption)
                     .foregroundColor(.black)

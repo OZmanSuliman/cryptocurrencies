@@ -48,13 +48,19 @@ struct CurrencyListContentView<Interactor, Presenter>: View where Interactor: Cu
                             }
                     }
                 } else {
-                    Spacer()
-                    Text("No Data Available About the Currencys😢")
-                        .font(.subheadline)
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.center)
-                        .padding(.top, 50)
-                    Spacer()
+                    VStack(alignment: .center) {
+                        Spacer()
+                        Image(systemName: Strings.icloud.fullString())
+                            .resizable()
+                            .foregroundColor(Color(hex: 0x4EA7D8))
+                            .frame(width: 110, height: 100)
+                            .padding()
+                        Text(Strings.noData.fullString())
+                            .multilineTextAlignment(.center)
+                            .font(.caption)
+                            .foregroundColor(.black)
+                        Spacer(minLength: 300)
+                    }
                 }
             
             }

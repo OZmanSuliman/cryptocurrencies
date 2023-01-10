@@ -26,7 +26,7 @@ struct CurrencyListScreen: View {
                         .background(Color.white)
                         .navigationBarHidden(true)
                 } else {
-                    CurrencyListErrorView(error: "NA")
+                    CurrencyListErrorView(error: Strings.NA.fullString())
                         .navigationBarHidden(true)
                         .background(Color.white)
                 }
@@ -39,7 +39,7 @@ struct CurrencyListScreen: View {
                     .navigationBarHidden(true)
                     .background(Color.white)
             case .idle:
-                CurrencyListErrorView(error: "NA")
+                CurrencyListErrorView(error: Strings.NA.fullString())
                     .navigationBarHidden(true)
                     .background(Color.white)
             }
