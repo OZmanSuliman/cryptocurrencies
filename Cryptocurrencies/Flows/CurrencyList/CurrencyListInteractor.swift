@@ -63,6 +63,7 @@ extension CurrencyListInteractor {
                 self?.currentPage += 1
                 if CurrencyBaseModel.cryptocurrencyModel?.count ?? 0 < self?.perPage ?? 10 {
                     self?.membersListFull = true
+                    self?.presenter.membersListIsFull = self?.membersListFull`
                 }
                 // notify presenter
                 DispatchQueue.main.async {
