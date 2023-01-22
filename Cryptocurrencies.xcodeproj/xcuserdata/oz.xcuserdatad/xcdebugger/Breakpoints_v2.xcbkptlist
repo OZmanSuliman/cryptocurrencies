@@ -3,4 +3,246 @@
    uuid = "8C497B8D-9951-454B-B856-DB27E436D450"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A97E21BA-884C-4BC6-839D-FF4FA4E301B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "fetchCurrency(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A97E21BA-884C-4BC6-839D-FF4FA4E301B4 - 59e8eed37b2d6798"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cryptocurrencies.FetchCurrencyResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in Cryptocurrencies.CurrencyListInteractor.fetchCurrency(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Cryptocurrencies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oz/Desktop/cryptocurrencies/Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "A97E21BA-884C-4BC6-839D-FF4FA4E301B4 - 59e8eed37b2d6798"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cryptocurrencies.FetchCurrencyResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in Cryptocurrencies.CurrencyListInteractor.fetchCurrency(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Cryptocurrencies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oz/Desktop/cryptocurrencies/Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "944">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F89896F-BE64-42C5-AC1B-CCF76CF5471B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "fetchCurrency(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8F89896F-BE64-42C5-AC1B-CCF76CF5471B - 59e8eed37b2d600d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cryptocurrencies.FetchCurrencyResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in Cryptocurrencies.CurrencyListInteractor.fetchCurrency(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Cryptocurrencies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oz/Desktop/cryptocurrencies/Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "3252">
+               </Location>
+               <Location
+                  uuid = "8F89896F-BE64-42C5-AC1B-CCF76CF5471B - dd06a79261d8a903"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Cryptocurrencies.FetchCurrencyResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in Cryptocurrencies.CurrencyListInteractor.fetchCurrency(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Cryptocurrencies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oz/Desktop/cryptocurrencies/Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67A62B8B-DD98-4F6D-AEF4-8DD0B675F4E0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "fetchCurrency(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67A62B8B-DD98-4F6D-AEF4-8DD0B675F4E0 - 59e8eed37b2d6081"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Cryptocurrencies.FetchCurrencyResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in Cryptocurrencies.CurrencyListInteractor.fetchCurrency(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Cryptocurrencies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oz/Desktop/cryptocurrencies/Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "2700">
+               </Location>
+               <Location
+                  uuid = "67A62B8B-DD98-4F6D-AEF4-8DD0B675F4E0 - 7d051e1c55d5386"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Cryptocurrencies.FetchCurrencyResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Int&gt;) -&gt; () in Cryptocurrencies.CurrencyListInteractor.fetchCurrency(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Cryptocurrencies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oz/Desktop/cryptocurrencies/Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "396234F8-05D1-40B5-9539-50B654FF1C69"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Flows/CurrencyList/Mock/CurrencyListPresenterMock.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "CurrencyListSuccessed(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C71227F-3788-449D-89A7-3916EAFB1E2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Core/Networking/Requests/FetchWeather/FetchCurrencyResponse.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AA69432-823F-4E36-AFF6-D91B9D268A0E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Core/Networking/Requests/FetchWeather/FetchCurrencyResponse.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC77DBB2-B6B1-4F14-B799-07B705BF0348"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Flows/CurrencyList/CurrencyListInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "fetchCurrency(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BCE29AE-F42C-42F4-9B5C-E568193C3E51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CryptocurrenciesTests/CurrencyListInteractorTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "testFetchCurrencyFailed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDE70691-1E75-425C-A71C-9DD07B2C5799"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cryptocurrencies/Flows/CurrencyList/Mock/CurrencyListPresenterMock.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "CurrencyListFaild(error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

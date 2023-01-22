@@ -26,7 +26,6 @@
 		2D4C1FF528C89F9300A9F8DE /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FEF28C89F9300A9F8DE /* EnvironmentManager.swift */; };
 		2D4C1FF728C89F9300A9F8DE /* RandomAccessCollectionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FF128C89F9300A9F8DE /* RandomAccessCollectionExt.swift */; };
 		2D4C1FF828C89F9300A9F8DE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FF228C89F9300A9F8DE /* APIManager.swift */; };
-		2D4C1FF928C89F9300A9F8DE /* APIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FF328C89F9300A9F8DE /* APIMock.swift */; };
 		2D4C1FFA28C89F9300A9F8DE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FF428C89F9300A9F8DE /* AppState.swift */; };
 		2D4C201828C8A89F00A9F8DE /* CurrencyRowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C201428C8A89F00A9F8DE /* CurrencyRowPresenter.swift */; };
 		2D4C201928C8A89F00A9F8DE /* CurrencyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C201528C8A89F00A9F8DE /* CurrencyListPresenter.swift */; };
@@ -49,7 +48,6 @@
 		2D4C206328C8B53300A9F8DE /* AnimatedTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C202E28C8AA9200A9F8DE /* AnimatedTopView.swift */; };
 		2D4C206428C8B53300A9F8DE /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FE128C89E7700A9F8DE /* CurrencyListInteractor.swift */; };
 		2D4C206528C8B53300A9F8DE /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FEF28C89F9300A9F8DE /* EnvironmentManager.swift */; };
-		2D4C206628C8B53300A9F8DE /* APIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FF328C89F9300A9F8DE /* APIMock.swift */; };
 		2D4C206728C8B53300A9F8DE /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C202828C8AA9200A9F8DE /* TopView.swift */; };
 		2D4C206A28C8B53300A9F8DE /* CurrencyListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C202F28C8AA9200A9F8DE /* CurrencyListErrorView.swift */; };
 		2D4C206C28C8B53300A9F8DE /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FA828C89D7100A9F8DE /* WeatherAppApp.swift */; };
@@ -72,7 +70,6 @@
 		2D4C20A328C8B53600A9F8DE /* AnimatedTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C202E28C8AA9200A9F8DE /* AnimatedTopView.swift */; };
 		2D4C20A428C8B53600A9F8DE /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FE128C89E7700A9F8DE /* CurrencyListInteractor.swift */; };
 		2D4C20A528C8B53600A9F8DE /* EnvironmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FEF28C89F9300A9F8DE /* EnvironmentManager.swift */; };
-		2D4C20A628C8B53600A9F8DE /* APIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FF328C89F9300A9F8DE /* APIMock.swift */; };
 		2D4C20A728C8B53600A9F8DE /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C202828C8AA9200A9F8DE /* TopView.swift */; };
 		2D4C20AA28C8B53600A9F8DE /* CurrencyListErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C202F28C8AA9200A9F8DE /* CurrencyListErrorView.swift */; };
 		2D4C20AC28C8B53600A9F8DE /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C1FA828C89D7100A9F8DE /* WeatherAppApp.swift */; };
@@ -133,6 +130,13 @@
 		2D89D1A628C9B6760076204A /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D89D1A428C9B6760076204A /* APIEndpoints.swift */; };
 		2D89D1A728C9B6760076204A /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D89D1A428C9B6760076204A /* APIEndpoints.swift */; };
 		2D8C77FE297D7A56002E0DAF /* CurrencyListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C77FD297D7A56002E0DAF /* CurrencyListPresenterTests.swift */; };
+		2D8C7806297D9AB5002E0DAF /* CurrencyListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C7805297D9AB5002E0DAF /* CurrencyListInteractorTests.swift */; };
+		2D8C7808297D9B4B002E0DAF /* CurrencyListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C7807297D9B4B002E0DAF /* CurrencyListPresenterMock.swift */; };
+		2D8C7809297D9B4B002E0DAF /* CurrencyListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C7807297D9B4B002E0DAF /* CurrencyListPresenterMock.swift */; };
+		2D8C780A297D9B4B002E0DAF /* CurrencyListPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C7807297D9B4B002E0DAF /* CurrencyListPresenterMock.swift */; };
+		2D8C780D297D9C70002E0DAF /* ApiManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C780C297D9C70002E0DAF /* ApiManagerMock.swift */; };
+		2D8C780E297D9C70002E0DAF /* ApiManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C780C297D9C70002E0DAF /* ApiManagerMock.swift */; };
+		2D8C780F297D9C70002E0DAF /* ApiManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C780C297D9C70002E0DAF /* ApiManagerMock.swift */; };
 		2DA1EB9128CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EB9028CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift */; };
 		2DA1EB9228CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EB9028CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift */; };
 		2DA1EB9328CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA1EB9028CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift */; };
@@ -221,7 +225,6 @@
 		2D4C1FEF28C89F9300A9F8DE /* EnvironmentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentManager.swift; sourceTree = "<group>"; };
 		2D4C1FF128C89F9300A9F8DE /* RandomAccessCollectionExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomAccessCollectionExt.swift; sourceTree = "<group>"; };
 		2D4C1FF228C89F9300A9F8DE /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		2D4C1FF328C89F9300A9F8DE /* APIMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMock.swift; sourceTree = "<group>"; };
 		2D4C1FF428C89F9300A9F8DE /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2D4C201428C8A89F00A9F8DE /* CurrencyRowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRowPresenter.swift; sourceTree = "<group>"; };
 		2D4C201528C8A89F00A9F8DE /* CurrencyListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenter.swift; sourceTree = "<group>"; };
@@ -254,6 +257,9 @@
 		2D89D1A028C9B4720076204A /* FetchCurrencyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyRequest.swift; sourceTree = "<group>"; };
 		2D89D1A428C9B6760076204A /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		2D8C77FD297D7A56002E0DAF /* CurrencyListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterTests.swift; sourceTree = "<group>"; };
+		2D8C7805297D9AB5002E0DAF /* CurrencyListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractorTests.swift; sourceTree = "<group>"; };
+		2D8C7807297D9B4B002E0DAF /* CurrencyListPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterMock.swift; sourceTree = "<group>"; };
+		2D8C780C297D9C70002E0DAF /* ApiManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerMock.swift; sourceTree = "<group>"; };
 		2DA1EB9028CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractorMock.swift; sourceTree = "<group>"; };
 		2DA1EB9428CB5CCC00EE4A1E /* FetchCurrencyResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyResponseMock.swift; sourceTree = "<group>"; };
 		2DA1EB9828CB5D1F00EE4A1E /* FetchCurrencyRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrencyRequestMock.swift; sourceTree = "<group>"; };
@@ -370,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				2D8C77FD297D7A56002E0DAF /* CurrencyListPresenterTests.swift */,
+				2D8C7805297D9AB5002E0DAF /* CurrencyListInteractorTests.swift */,
 			);
 			path = CryptocurrenciesTests;
 			sourceTree = "<group>";
@@ -397,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				2DBE461E296D4F1E0084535B /* Extentions */,
-				2D4C1FF328C89F9300A9F8DE /* APIMock.swift */,
 				2DBE4618296D32F50084535B /* Strings.swift */,
 			);
 			path = Utilities;
@@ -439,6 +445,7 @@
 		2D4C1FFB28C89FF000A9F8DE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2D8C780B297D9C68002E0DAF /* Mock */,
 				2D4C1FF428C89F9300A9F8DE /* AppState.swift */,
 				2D4C1FF228C89F9300A9F8DE /* APIManager.swift */,
 			);
@@ -523,6 +530,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		2D8C780B297D9C68002E0DAF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2D8C780C297D9C70002E0DAF /* ApiManagerMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		2DA01EF628CA51190050BBC9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				2DA1EB9028CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift */,
+				2D8C7807297D9B4B002E0DAF /* CurrencyListPresenterMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -844,7 +860,6 @@
 				2D4C1FE228C89E7700A9F8DE /* CurrencyListInteractor.swift in Sources */,
 				2D832333295749F10091C92D /* MetadataResponse.swift in Sources */,
 				2D4C1FF528C89F9300A9F8DE /* EnvironmentManager.swift in Sources */,
-				2D4C1FF928C89F9300A9F8DE /* APIMock.swift in Sources */,
 				2DBE4619296D32F50084535B /* Strings.swift in Sources */,
 				2D8322EB295615880091C92D /* CryptocurrencyBaseModel.swift in Sources */,
 				2DBE4613296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
@@ -859,6 +874,7 @@
 				2DA1EB9528CB5CCC00EE4A1E /* FetchCurrencyResponseMock.swift in Sources */,
 				2D8322FF29563B140091C92D /* Quote.swift in Sources */,
 				2D4C1FF728C89F9300A9F8DE /* RandomAccessCollectionExt.swift in Sources */,
+				2D8C7808297D9B4B002E0DAF /* CurrencyListPresenterMock.swift in Sources */,
 				2D83231429563FCA0091C92D /* CryptocurrencyMetadata.swift in Sources */,
 				2D4C203828C8AA9200A9F8DE /* BlurBG.swift in Sources */,
 				2D2C886828CA387900CBD115 /* APIResponseProtocol.swift in Sources */,
@@ -878,6 +894,7 @@
 				2D8322EE295615880091C92D /* Status.swift in Sources */,
 				2D4C202428C8AA8500A9F8DE /* CurrencyListScreen.swift in Sources */,
 				2D83231129563FCA0091C92D /* Urls.swift in Sources */,
+				2D8C780D297D9C70002E0DAF /* ApiManagerMock.swift in Sources */,
 				2D89D1A128C9B4720076204A /* FetchCurrencyRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,6 +911,7 @@
 				2DBE462F296D4F750084535B /* ViewExt.swift in Sources */,
 				2DBE463B296D4FCF0084535B /* DoubleExt.swift in Sources */,
 				2DBE4629296D4F540084535B /* DeviceRotationViewModifierExt.swift in Sources */,
+				2D8C7806297D9AB5002E0DAF /* CurrencyListInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,12 +944,12 @@
 				2DA1EB9328CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift in Sources */,
 				2D4C206328C8B53300A9F8DE /* AnimatedTopView.swift in Sources */,
 				2D83232C295749F00091C92D /* MetadataRequestMock.swift in Sources */,
+				2D8C780A297D9B4B002E0DAF /* CurrencyListPresenterMock.swift in Sources */,
 				2D4C206428C8B53300A9F8DE /* CurrencyListInteractor.swift in Sources */,
 				2D83232B295749F00091C92D /* MetadataResponse.swift in Sources */,
 				2D4C206528C8B53300A9F8DE /* EnvironmentManager.swift in Sources */,
 				2DA1EB9B28CB5D1F00EE4A1E /* FetchCurrencyRequestMock.swift in Sources */,
 				2D8322ED295615880091C92D /* CryptocurrencyBaseModel.swift in Sources */,
-				2D4C206628C8B53300A9F8DE /* APIMock.swift in Sources */,
 				2D4C206728C8B53300A9F8DE /* TopView.swift in Sources */,
 				2D4C206A28C8B53300A9F8DE /* CurrencyListErrorView.swift in Sources */,
 				2D89D1A728C9B6760076204A /* APIEndpoints.swift in Sources */,
@@ -941,6 +959,7 @@
 				2D83230729563B140091C92D /* Currency.swift in Sources */,
 				2DBE463A296D4FCF0084535B /* DoubleExt.swift in Sources */,
 				2D4C206C28C8B53300A9F8DE /* WeatherAppApp.swift in Sources */,
+				2D8C780F297D9C70002E0DAF /* ApiManagerMock.swift in Sources */,
 				2DBE4628296D4F540084535B /* DeviceRotationViewModifierExt.swift in Sources */,
 				2D83230129563B140091C92D /* Quote.swift in Sources */,
 				2DBE4615296D2EF60084535B /* CacheAsyncImage.swift in Sources */,
@@ -982,12 +1001,12 @@
 				2DA1EB9228CB5BAD00EE4A1E /* CurrencyListInteractorMock.swift in Sources */,
 				2D4C20A328C8B53600A9F8DE /* AnimatedTopView.swift in Sources */,
 				2D832330295749F10091C92D /* MetadataRequestMock.swift in Sources */,
+				2D8C7809297D9B4B002E0DAF /* CurrencyListPresenterMock.swift in Sources */,
 				2D4C20A428C8B53600A9F8DE /* CurrencyListInteractor.swift in Sources */,
 				2D83232F295749F10091C92D /* MetadataResponse.swift in Sources */,
 				2D4C20A528C8B53600A9F8DE /* EnvironmentManager.swift in Sources */,
 				2DA1EB9A28CB5D1F00EE4A1E /* FetchCurrencyRequestMock.swift in Sources */,
 				2D8322EC295615880091C92D /* CryptocurrencyBaseModel.swift in Sources */,
-				2D4C20A628C8B53600A9F8DE /* APIMock.swift in Sources */,
 				2D4C20A728C8B53600A9F8DE /* TopView.swift in Sources */,
 				2D4C20AA28C8B53600A9F8DE /* CurrencyListErrorView.swift in Sources */,
 				2D89D1A628C9B6760076204A /* APIEndpoints.swift in Sources */,
@@ -997,6 +1016,7 @@
 				2D83230629563B140091C92D /* Currency.swift in Sources */,
 				2DBE4639296D4FCF0084535B /* DoubleExt.swift in Sources */,
 				2D4C20AC28C8B53600A9F8DE /* WeatherAppApp.swift in Sources */,
+				2D8C780E297D9C70002E0DAF /* ApiManagerMock.swift in Sources */,
 				2DBE4627296D4F540084535B /* DeviceRotationViewModifierExt.swift in Sources */,
 				2D83230029563B140091C92D /* Quote.swift in Sources */,
 				2DBE4614296D2EF60084535B /* CacheAsyncImage.swift in Sources */,

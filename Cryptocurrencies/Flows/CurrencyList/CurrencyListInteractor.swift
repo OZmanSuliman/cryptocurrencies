@@ -23,9 +23,9 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     private var data: Data?
     private let decoder = JSONDecoder()
     private var presenter: any CurrencyListPresenterProtocol
-    private var cryptocurrencyModel: [CryptocurrencyModel] = []
-    private var membersListFull = false
-    private var currentPage = 0
+    var cryptocurrencyModel: [CryptocurrencyModel] = []
+    var membersListFull = false
+    var currentPage = 0
     private let perPage = 10
     private var isFetching = false
 
