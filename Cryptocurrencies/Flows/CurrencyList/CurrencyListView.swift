@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// MARK: - CurrencyListScreen
+// MARK: - CurrencyListView
 
-struct CurrencyListScreen: View {
+struct CurrencyListView: View {
     @StateObject var store = AppState.shared
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
@@ -56,7 +56,7 @@ struct CurrencyListScreen: View {
 #if DEBUG
     struct CurrencyList_Previews: PreviewProvider {
         static var previews: some View {
-            CurrencyListScreen(interactor:  CurrencyListInteractor(apiManager: ApiManagerMock(), presenter: CurrencyListPresenter()), presenter: CurrencyListPresenter())
+            CurrencyListView(interactor:  CurrencyListInteractor(apiManager: ApiManagerMock(), presenter: CurrencyListPresenter()), presenter: CurrencyListPresenter())
         }
     }
 #endif

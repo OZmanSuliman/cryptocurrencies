@@ -12,18 +12,11 @@ import SwiftUI
 @main
 struct CryptocurrenciesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
+    let router = CurrencyListRouter()
     var body: some Scene {
         WindowGroup {
-            setInteractor()
+            router.createModule()
         }
     }
 
-    func setInteractor() -> CurrencyListScreen {
-            let apiManager = ApiManager.shared
-            let presenter: any CurrencyListPresenterProtocol = CurrencyListPresenter()
-            let interactor: any CurrencyListInteractorProtocol = CurrencyListInteractor(apiManager: apiManager, presenter: presenter)
-            return CurrencyListScreen(interactor: interactor, presenter: presenter)
-    
-    }
 }
