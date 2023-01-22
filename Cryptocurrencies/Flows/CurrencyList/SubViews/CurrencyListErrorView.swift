@@ -31,6 +31,7 @@ struct CurrencyListErrorView: View {
                         .frame(width: 110, height: 100)
                         .padding()
                     Text(error)
+                        .accessibilityIdentifier("errorText")
                         .multilineTextAlignment(.center)
                         .font(.caption)
                         .foregroundColor(.black)
