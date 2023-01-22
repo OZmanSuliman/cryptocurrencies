@@ -8,7 +8,6 @@
 import SwiftUI
 
 // MARK: - CurrencyListErrorView
-
 struct CurrencyListErrorView: View {
     var error: String
     @StateObject var store = AppState.shared

@@ -67,6 +67,16 @@
                ReferencedContainer = "container:Cryptocurrencies.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D4C1FBE28C89D7200A9F8DE"
+               BuildableName = "CryptocurrenciesUITests.xctest"
+               BlueprintName = "CryptocurrenciesUITests"
+               ReferencedContainer = "container:Cryptocurrencies.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

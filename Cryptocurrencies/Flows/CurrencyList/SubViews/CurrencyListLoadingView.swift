@@ -79,7 +79,7 @@ extension CurrencyListLoadingView {
             }
             .trim(from: animateTrimPath ? 1/0.99 : 0, to: animateTrimPath ? 1/0.99 : 1)
             .scale(50, anchor: .topLeading)
-            .stroke(Color.yellow, lineWidth: 20)
+            .stroke(.yellow, lineWidth: 20)
             .offset(x: 110, y: 350)
             .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true))
             .onAppear() {

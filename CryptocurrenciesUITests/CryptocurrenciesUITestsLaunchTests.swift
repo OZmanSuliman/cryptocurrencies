@@ -8,7 +8,8 @@
 import XCTest
 
 class CryptocurrenciesAppUITestsLaunchTests: XCTestCase {
-
+    var app: XCUIApplication!
+    
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
@@ -18,7 +19,7 @@ class CryptocurrenciesAppUITestsLaunchTests: XCTestCase {
     }
 
     func testLaunch() throws {
-        let app = XCUIApplication()
+        app = XCUIApplication(bundleIdentifier: "com.oz.Cryptocurrenciesdev")
         app.launch()
 
         // Insert steps here to perform after app launch but before taking a screenshot,
