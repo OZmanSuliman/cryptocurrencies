@@ -37,7 +37,6 @@ The app has 1 main data source:
 
 
 #### remote
-it is using openweathermap APIs to get the weather data.
 this data sourse is handled by ApiManager service.
 it is exclusive for staging and release environments.
 

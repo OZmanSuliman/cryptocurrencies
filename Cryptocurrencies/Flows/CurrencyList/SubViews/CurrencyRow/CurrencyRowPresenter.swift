@@ -16,8 +16,6 @@ protocol CurrencyRowPresenterProtocol {
     func changePerHour(model: CryptocurrencyModel) -> String
 }
 
-// MARK: - WeatherRowPresenterPresenter
-
 class CurrencyRowPresenter: CurrencyRowPresenterProtocol {
     private let store = AppState.shared
     

@@ -33,7 +33,7 @@ enum Strings: String {
     case icloud = "icloud.slash.fill"
     case defaultError = "An Error Occured"
     case banner
-    case appName = "Weather App"
+    case appName = "Cryptocurrencies"
     case appCost = "One Month free, then $4.99/month."
     
     func fullString(withParameters parameters: CVarArg...) -> String {

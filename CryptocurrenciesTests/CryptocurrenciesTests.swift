@@ -1,6 +1,6 @@
 //
-//cryptocurrenciesTests.swift
-//cryptocurrenciesTests
+//  cryptocurrenciesTests.swift
+//  cryptocurrenciesTests
 //
 //  Created by Osman Ahmed on 23/12/2022.
 //
@@ -9,7 +9,7 @@
 @testable import Cryptocurrencies
 import XCTest
 
-class WeatherAppTests: XCTestCase {
+class CryptocurrenciesAppTests: XCTestCase {
     var apiManager: ApiManager!
     var environmentManager: EnvironmentManager!
     var currencyListPresenter: (any CurrencyListPresenterProtocol)!

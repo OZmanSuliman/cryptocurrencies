@@ -1,13 +1,13 @@
 //
-cryptocurrenciesUITestsLaunchTests.swift
-cryptocurrenciesUITests
+// cryptocurrenciesUITestsLaunchTests.swift
+// cryptocurrenciesUITests
 //
 //  Created by Osman Ahmed on 23/12/2022.
 //
 
 import XCTest
 
-class WeatherAppUITestsLaunchTests: XCTestCase {
+class CryptocurrenciesAppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
