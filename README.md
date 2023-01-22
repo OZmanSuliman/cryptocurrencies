@@ -28,7 +28,6 @@ VIPER architecture is applied on this project
  data structures
 ####Router:
  assemble the components and manage the navigation
-currently no router exisit since there is only on screen
 
 
 ## Data Source
