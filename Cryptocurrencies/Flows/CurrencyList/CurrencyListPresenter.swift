@@ -57,7 +57,6 @@ extension CurrencyListPresenter {
     func CurrencyListSuccessed(model: CryptocurrencyBaseModel) {
         guard let fetchedCryptocurrency = model.cryptocurrencyModel else { return }
         cryptocurrencyModel.append(contentsOf: fetchedCryptocurrency)
-//        cryptocurrencyModel = Array(Set(cryptocurrencyModel))
         itemsListCount = cryptocurrencyModel.count
         store.stateCalculator = .loaded(cryptocurrencyModel)
     }

@@ -40,4 +40,13 @@ struct Status : Codable {
 		notice = try values.decodeIfPresent(String.self, forKey: .notice)
 	}
 
+    init(timestamp: String?, error_code: Int?, error_message: String?, elapsed: Int?, credit_count: Int?, notice: String?) {
+        self.timestamp = timestamp
+        self.error_code = error_code
+        self.error_message = error_message
+        self.elapsed = elapsed
+        self.credit_count = credit_count
+        self.notice = notice
+    }
+
 }

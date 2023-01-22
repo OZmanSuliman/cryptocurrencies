@@ -42,4 +42,9 @@ struct CryptocurrencyBaseModel: Codable {
             }
         }
     }
+    
+    init(status: Status?, cryptocurrencyModel: [CryptocurrencyModel]?) {
+        self.status = status
+        self.cryptocurrencyModel = cryptocurrencyModel
+    }
 }

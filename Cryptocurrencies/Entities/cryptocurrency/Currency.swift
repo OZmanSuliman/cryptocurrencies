@@ -12,7 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct USD : Codable {
+struct Currency : Codable {
 	let price : Double?
 	let volume_24h : Double?
 	let volume_change_24h : Double?
@@ -51,5 +51,18 @@ struct USD : Codable {
 		fully_diluted_market_cap = try values.decodeIfPresent(Double.self, forKey: .fully_diluted_market_cap)
 		last_updated = try values.decodeIfPresent(String.self, forKey: .last_updated)
 	}
+
+    init(price: Double?, volume_24h: Double?, volume_change_24h: Double?, percent_change_1h: Double?, percent_change_24h: Double?, percent_change_7d: Double?, market_cap: Double?, market_cap_dominance: Double?, fully_diluted_market_cap: Double?, last_updated: String?) {
+        self.price = price
+        self.volume_24h = volume_24h
+        self.volume_change_24h = volume_change_24h
+        self.percent_change_1h = percent_change_1h
+        self.percent_change_24h = percent_change_24h
+        self.percent_change_7d = percent_change_7d
+        self.market_cap = market_cap
+        self.market_cap_dominance = market_cap_dominance
+        self.fully_diluted_market_cap = fully_diluted_market_cap
+        self.last_updated = last_updated
+    }
 
 }

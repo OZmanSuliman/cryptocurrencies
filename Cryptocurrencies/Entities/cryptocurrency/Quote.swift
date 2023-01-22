@@ -13,8 +13,8 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct Quote : Codable {
-	let uSD : USD?
-	let bTC : BTC?
+	let uSD : Currency?
+	let bTC : Currency?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -24,8 +24,13 @@ struct Quote : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		uSD = try values.decodeIfPresent(USD.self, forKey: .uSD)
-		bTC = try values.decodeIfPresent(BTC.self, forKey: .bTC)
+		uSD = try values.decodeIfPresent(Currency.self, forKey: .uSD)
+		bTC = try values.decodeIfPresent(Currency.self, forKey: .bTC)
 	}
+
+    init(USD: Currency?, BTC: Currency?) {
+        self.uSD = USD
+        self.bTC = BTC
+    }
 
 }
