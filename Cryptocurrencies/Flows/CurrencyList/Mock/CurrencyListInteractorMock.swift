@@ -9,12 +9,12 @@ import CoreLocation
 import Foundation
 
 // MARK: - CurrencyListInteractorMock
-class CurrencyListInteractorMock: CurrencyListInteractorProtocol {
+class CurrencyListInteractorMock<PresenterProtocol: CurrencyListPresenterProtocol>: CurrencyListInteractorProtocol {
     private var cryptocurrencyBaseModel: CryptocurrencyBaseModel?
     private let apiManager: ApiManagerProtocol
-    private var presenter: any CurrencyListPresenterProtocol
+    private var presenter: PresenterProtocol
     private var jsonData: Data?
-    init(apiManager: ApiManagerProtocol, presenter: any CurrencyListPresenterProtocol, jsonData: Data?) {
+    init(apiManager: ApiManagerProtocol, presenter: PresenterProtocol, jsonData: Data?) {
         self.apiManager = apiManager
         self.presenter = presenter
         self.jsonData = jsonData

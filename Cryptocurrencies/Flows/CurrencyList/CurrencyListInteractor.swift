@@ -18,18 +18,18 @@ protocol CurrencyListInteractorProtocol: ObservableObject {
 
 // MARK: - CurrencyListInteractor
 
-class CurrencyListInteractor: CurrencyListInteractorProtocol {
+class CurrencyListInteractor<Presenter: CurrencyListPresenterProtocol>: CurrencyListInteractorProtocol {
     private let apiManager: ApiManagerProtocol
     private var data: Data?
     private let decoder = JSONDecoder()
-    private var presenter: any CurrencyListPresenterProtocol
+    private var presenter: Presenter
     var cryptocurrencyModel: [CryptocurrencyModel] = []
     var membersListFull = false
     var currentPage = 0
     private let perPage = 10
     private var isFetching = false
 
-    init(apiManager: ApiManagerProtocol, presenter: any CurrencyListPresenterProtocol) {
+    init(apiManager: ApiManagerProtocol, presenter: Presenter) {
         self.apiManager = apiManager
         self.presenter = presenter
     }

@@ -7,15 +7,17 @@
 
 import Foundation
 
-protocol CurrencyListRouterProtocol{
-    func createModule() -> CurrencyListView
+protocol CurrencyListRouterProtocol {
+    associatedtype I: CurrencyListInteractorProtocol
+    associatedtype P: CurrencyListPresenterProtocol
+    func createModule() -> CurrencyListView<I, P>
 }
 
 class CurrencyListRouter: CurrencyListRouterProtocol{
-    func createModule() -> CurrencyListView {
+    func createModule() -> CurrencyListView<CurrencyListInteractor<CurrencyListPresenter>, CurrencyListPresenter> {
             let apiManager = ApiManager.shared
-            let presenter: any CurrencyListPresenterProtocol = CurrencyListPresenter()
-            let interactor: any CurrencyListInteractorProtocol = CurrencyListInteractor(apiManager: apiManager, presenter: presenter)
+            let presenter = CurrencyListPresenter()
+            let interactor = CurrencyListInteractor(apiManager: apiManager, presenter: presenter)
             return CurrencyListView(interactor: interactor, presenter: presenter)
     }
 }

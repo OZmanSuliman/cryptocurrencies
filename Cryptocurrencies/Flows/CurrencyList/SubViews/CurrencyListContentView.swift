@@ -19,9 +19,9 @@ struct CurrencyListContentView<Interactor, Presenter>: View where Interactor: Cu
     @ObservedObject var interactor: Interactor
     let CurrencyList: [CryptocurrencyModel]
     var membersListIsFull: Bool?
-    init(presenter: any CurrencyListPresenterProtocol, interactor: any CurrencyListInteractorProtocol, CurrencyList: [CryptocurrencyModel], membersListIsFull: Bool?) {
-        self.interactor = interactor as! Interactor
-        self.presenter = presenter as! Presenter
+    init(presenter: Presenter, interactor: Interactor, CurrencyList: [CryptocurrencyModel], membersListIsFull: Bool?) {
+        self.interactor = interactor
+        self.presenter = presenter
         self.CurrencyList = CurrencyList
         self.membersListIsFull = membersListIsFull
     }

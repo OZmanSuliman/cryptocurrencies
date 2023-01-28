@@ -9,12 +9,12 @@ import SwiftUI
 
 // MARK: - CurrencyListView
 
-struct CurrencyListView: View {
+struct CurrencyListView<Interactor, Presenter>: View where Presenter: CurrencyListPresenterProtocol, Interactor: CurrencyListInteractorProtocol {
     @StateObject var store = AppState.shared
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State var show = false
-    let interactor: any CurrencyListInteractorProtocol
-    let presenter: any CurrencyListPresenterProtocol
+    let interactor: Interactor
+    let presenter: Presenter
     
     
     var body: some View {
@@ -22,7 +22,7 @@ struct CurrencyListView: View {
             switch store.stateCalculator {
             case let .loaded(currencyList):
                 if let currencyList = currencyList as? [CryptocurrencyModel] {
-                    CurrencyListContentView<CurrencyListInteractor, CurrencyListPresenter>(presenter: presenter, interactor: interactor, CurrencyList: currencyList, membersListIsFull: presenter.membersListIsFull)
+                    CurrencyListContentView<CurrencyListInteractor<CurrencyListPresenter>, CurrencyListPresenter>(presenter: presenter as! CurrencyListPresenter, interactor: interactor as! CurrencyListInteractor, CurrencyList: currencyList, membersListIsFull: presenter.membersListIsFull)
                         .background(Color.white)
                         .navigationBarHidden(true)
                 } else {

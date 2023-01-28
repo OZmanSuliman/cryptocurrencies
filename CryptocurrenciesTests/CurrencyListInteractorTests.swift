@@ -11,7 +11,7 @@ import XCTest
 class CurrencyListInteractorTests: XCTestCase {
     var apiManagerMock: ApiManagerMock!
     var presenterMock: CurrencyListPresenterMock!
-    var interactor: CurrencyListInteractor!
+    var interactor: CurrencyListInteractor<CurrencyListPresenterMock>!
 
     override func setUp() {
         apiManagerMock = ApiManagerMock()
