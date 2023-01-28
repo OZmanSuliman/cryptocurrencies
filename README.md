@@ -1,7 +1,5 @@
 # Cryptocurrencies App
 
-Note: if you have Xcode blow 14.1 checkout to the branch Xcode_9
-
 Cryptocurrencies App is an iOS App for cryptocurrencies information.
 UI of the app is developed using SwiftUI.
 
